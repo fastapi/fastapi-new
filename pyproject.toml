@@ -3,7 +3,7 @@ name = "fastapi-new"
 version = "0.0.1"
 license = "MIT"
 license-files = ["LICENSE"]
-description = "Create a new FastAPI project in one command."
+description = "Create a new FastAPI project in one command"
 readme = "README.md"
 authors = [
     { name = "Sebastián Ramírez", email = "tiangolo@gmail.com" }
