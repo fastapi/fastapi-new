@@ -29,11 +29,11 @@ class ProjectConfig:
 def _generate_readme(project_name: str) -> str:
     return f"""# {project_name}
 
-A project created with FastAPI Cloud CLI.
+A project created with FastAPI CLI.
 
 ## Quick Start
 
-Start the development server:
+### Start the development server:
 
 ```bash
 uv run fastapi dev
@@ -41,7 +41,9 @@ uv run fastapi dev
 
 Visit http://localhost:8000
 
-Deploy to FastAPI Cloud:
+### Deploy to FastAPI CLI:
+
+> Reader's note: These commands are not quite ready for prime time yet, but will be soon! Join the waiting list at https://fastapicloud.com!
 
 ```bash
 uv run fastapi login
