@@ -1,0 +1,100 @@
+[project]
+name = "fastapi-new"
+version = "0.0.1"
+license = "MIT"
+license-files = ["LICENSE"]
+description = "Create a new FastAPI project in one command."
+readme = "README.md"
+authors = [
+    { name = "Sebastián Ramírez", email = "tiangolo@gmail.com" }
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = []
+[project.urls]
+Homepage = "https://github.com/fastapi/fastapi-new"
+Documentation = "https://github.com/fastapi/fastapi-new"
+Repository = "https://github.com/fastapi/fastapi-new"
+Issues = "https://github.com/fastapi/fastapi-new/issues"
+Changelog = "https://github.com/fastapi/fastapi-new/release-notes.md"
+
+[build-system]
+requires = ["uv_build>=0.9.1,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.mypy]
+strict = true
+
+[tool.pytest.ini_options]
+addopts = [
+  "--strict-config",
+  "--strict-markers",
+]
+xfail_strict = true
+junit_family = "xunit2"
+
+[tool.coverage.run]
+parallel = true
+data_file = "coverage/.coverage"
+source = [
+    "src/fastapi_new",
+    "tests",
+]
+context = '${CONTEXT}'
+dynamic_context = "test_function"
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+sort = "-Cover"
+
+[tool.coverage.html]
+show_contexts = true
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+    "W191",  # indentation contains tabs
+]
+
+[tool.ruff.lint.pyupgrade]
+# Preserve types, even if a file imports `from __future__ import annotations`.
+keep-runtime-typing = true
+
+[tool.uv.build-backend]
+source-include = [
+    "tests/**",
+    "requirements*.txt",
+    "scripts/**",
+]
