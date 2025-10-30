@@ -18,13 +18,6 @@ def temp_project_dir(tmp_path: Path, monkeypatch: Any) -> Path:
     return tmp_path
 
 
-@pytest.fixture(autouse=True)
-def check_uv_installed() -> None:
-    """Skip tests if uv is not installed."""
-    if not shutil.which("uv"):
-        pytest.skip("uv is not installed")  # pragma: no cover
-
-
 class TestNewCommand:
     def _assert_project_created(
         self, project_path: Path, check_version_file: bool = False
