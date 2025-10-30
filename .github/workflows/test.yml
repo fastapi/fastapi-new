@@ -53,7 +53,7 @@ jobs:
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.4.15"
+          version: "0.9.6"
           enable-cache: true
           cache-dependency-glob: |
             requirements**.txt
@@ -93,7 +93,7 @@ jobs:
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.4.15"
+          version: "0.9.6"
           enable-cache: true
           cache-dependency-glob: |
             requirements**.txt
