@@ -9,7 +9,6 @@ from rich_toolkit import RichToolkit
 
 from .utils.cli import get_rich_toolkit
 
-# TODO: Add ability to fetch different templates in the future via --template option
 TEMPLATE_CONTENT = """from fastapi import FastAPI
 app = FastAPI()
 
