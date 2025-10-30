@@ -1,7 +1,7 @@
 import pathlib
 import shutil
 import subprocess
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Annotated
 
 import typer
@@ -22,7 +22,7 @@ def main():
 class ProjectConfig:
     name: str
     path: pathlib.Path
-    extra_args: list[str] = field(default_factory=list)
+    python: str | None = None
 
 
 def _generate_readme(project_name: str) -> str:
@@ -66,42 +66,39 @@ def _exit_with_error(toolkit: RichToolkit, error_msg: str) -> None:
     raise typer.Exit(code=1)
 
 
-def _validate_python_version_in_args(extra_args: list[str]) -> str | None:
+def _validate_python_version(python: str | None) -> str | None:
     """
-    Check if --python is specified in extra_args and validate it's >= 3.8.
+    Validate Python version is >= 3.8.
     Returns error message if < 3.8, None otherwise.
     Let uv handle malformed versions or versions it can't find.
     """
-    if not extra_args:
+    if not python:
         return None
 
-    for i, arg in enumerate(extra_args):
-        if arg in ("--python", "-p") and i + 1 < len(extra_args):
-            version_str = extra_args[i + 1]
-            try:
-                parts = version_str.split(".")
-                if len(parts) < 2:
-                    return None  # Let uv handle malformed version
-                major, minor = int(parts[0]), int(parts[1])
+    try:
+        parts = python.split(".")
+        if len(parts) < 2:
+            return None  # Let uv handle malformed version
+        major, minor = int(parts[0]), int(parts[1])
 
-                if major < 3 or (major == 3 and minor < 8):
-                    return f"Python {version_str} is not supported. FastAPI requires Python 3.8 or higher."
-                return None
-            except (ValueError, IndexError):
-                # Malformed version - let uv handle the error
-                return None
+        if major < 3 or (major == 3 and minor < 8):
+            return f"Python {python} is not supported. FastAPI requires Python 3.8 or higher."
+    except (ValueError, IndexError):
+        # Malformed version - let uv handle the error
+        pass
+
     return None
 
 
 def _setup(toolkit: RichToolkit, config: ProjectConfig) -> None:
-    error = _validate_python_version_in_args(config.extra_args)
+    error = _validate_python_version(config.python)
     if error:
         _exit_with_error(toolkit, error)
 
     msg = "Setting up environment with uv"
 
-    if config.extra_args:
-        msg += f" ({' '.join(config.extra_args)})"
+    if config.python:
+        msg += f" (Python {config.python})"
 
     toolkit.print(msg, tag="env")
 
@@ -112,8 +109,8 @@ def _setup(toolkit: RichToolkit, config: ProjectConfig) -> None:
     else:
         init_cmd = ["uv", "init", "--bare", config.name]
 
-    if config.extra_args:
-        init_cmd.extend(config.extra_args)
+    if config.python:
+        init_cmd.extend(["--python", config.python])
 
     try:
         subprocess.run(init_cmd, check=True, capture_output=True)
@@ -175,10 +172,8 @@ def new(
     config = ProjectConfig(
         name=name,
         path=path,
+        python=python,
     )
-
-    if python:
-        config.extra_args.extend(["--python", python])
 
     with get_rich_toolkit() as toolkit:
         toolkit.print_title("Creating a new project 🚀", tag="FastAPI")
