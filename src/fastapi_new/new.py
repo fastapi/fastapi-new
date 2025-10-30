@@ -108,9 +108,9 @@ def _setup(toolkit: RichToolkit, config: ProjectConfig) -> None:
     # If config.name is provided, create in subdirectory; otherwise init in current dir
     # uv will infer the project name from the directory name
     if config.path == pathlib.Path.cwd():
-        init_cmd = ["uv", "init"]
+        init_cmd = ["uv", "init", "--bare"]
     else:
-        init_cmd = ["uv", "init", config.name]
+        init_cmd = ["uv", "init", "--bare", config.name]
 
     if config.extra_args:
         init_cmd.extend(config.extra_args)
@@ -156,6 +156,14 @@ def new(
             help="The name of the new FastAPI Cloud project. If not provided, initializes in the current directory.",
         ),
     ] = None,
+    python: Annotated[
+        str | None,
+        typer.Option(
+            "--python",
+            "-p",
+            help="Specify the Python version for the new project (e.g., 3.9). Must be 3.8 or higher.",
+        ),
+    ] = None,
 ) -> None:
     if project_name:
         name = project_name
@@ -167,8 +175,10 @@ def new(
     config = ProjectConfig(
         name=name,
         path=path,
-        extra_args=ctx.args if hasattr(ctx, "args") else [],
     )
+
+    if python:
+        config.extra_args.extend(["--python", python])
 
     with get_rich_toolkit() as toolkit:
         toolkit.print_title("Creating a new project 🚀", tag="FastAPI")

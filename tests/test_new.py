@@ -19,14 +19,10 @@ def temp_project_dir(tmp_path: Path, monkeypatch: Any) -> Path:
 
 
 class TestNewCommand:
-    def _assert_project_created(
-        self, project_path: Path, check_version_file: bool = False
-    ) -> None:
+    def _assert_project_created(self, project_path: Path) -> None:
         assert (project_path / "main.py").exists()
         assert (project_path / "README.md").exists()
         assert (project_path / "pyproject.toml").exists()
-        if check_version_file:
-            assert (project_path / ".python-version").exists()
 
     def test_creates_project_successfully(self, temp_project_dir: Path) -> None:
         result = runner.invoke(app, ["my_fastapi_project"])
@@ -42,22 +38,14 @@ class TestNewCommand:
         result = runner.invoke(app, ["project_long", "--python", "3.12"])
         assert result.exit_code == 0
         project_path = temp_project_dir / "project_long"
-        self._assert_project_created(project_path, check_version_file=True)
-        assert "3.12" in (project_path / ".python-version").read_text()
+        self._assert_project_created(project_path)
+        assert "3.12" in (project_path / "pyproject.toml").read_text()
 
         # Test short form
         result = runner.invoke(app, ["project_short", "-p", "3.11"])
         assert result.exit_code == 0
         project_path = temp_project_dir / "project_short"
-        assert "3.11" in (project_path / ".python-version").read_text()
-
-    def test_creates_project_with_extra_uv_flags(self, temp_project_dir: Path) -> None:
-        """Test that extra flags are passed through to uv."""
-        result = runner.invoke(app, ["my_fastapi_project", "--python", "3.12", "--lib"])
-
-        assert result.exit_code == 0
-        project_path = temp_project_dir / "my_fastapi_project"
-        self._assert_project_created(project_path)
+        assert "3.11" in (project_path / "pyproject.toml").read_text()
 
     def test_validates_template_file_contents(self, temp_project_dir: Path) -> None:
         result = runner.invoke(app, ["sample_project"])
@@ -118,14 +106,6 @@ class TestNewCommand:
 
     def test_creates_project_without_python_flag(self, temp_project_dir: Path) -> None:
         result = runner.invoke(app, ["test_project"])
-        assert result.exit_code == 0
-        project_path = temp_project_dir / "test_project"
-        self._assert_project_created(project_path)
-
-    def test_creates_project_with_other_uv_flags_no_python(
-        self, temp_project_dir: Path
-    ) -> None:
-        result = runner.invoke(app, ["test_project", "--lib"])
         assert result.exit_code == 0
         project_path = temp_project_dir / "test_project"
         self._assert_project_created(project_path)
