@@ -40,7 +40,7 @@ uv run fastapi dev
 
 Visit http://localhost:8000
 
-### Deploy to FastAPI CLI:
+### Deploy to FastAPI Cloud:
 
 > Reader's note: These commands are not quite ready for prime time yet, but will be soon! Join the waiting list at https://fastapicloud.com!
 
@@ -68,8 +68,8 @@ def _exit_with_error(toolkit: RichToolkit, error_msg: str) -> None:
 
 def _validate_python_version(python: str | None) -> str | None:
     """
-    Validate Python version is >= 3.8.
-    Returns error message if < 3.8, None otherwise.
+    Validate Python version is >= 3.10.
+    Returns error message if < 3.10, None otherwise.
     Let uv handle malformed versions or versions it can't find.
     """
     if not python:
@@ -81,8 +81,8 @@ def _validate_python_version(python: str | None) -> str | None:
             return None  # Let uv handle malformed version
         major, minor = int(parts[0]), int(parts[1])
 
-        if major < 3 or (major == 3 and minor < 8):
-            return f"Python {python} is not supported. FastAPI requires Python 3.8 or higher."
+        if major < 3 or (major == 3 and minor < 10):
+            return f"Python {python} is not supported. FastAPI requires Python 3.10 or higher."
     except (ValueError, IndexError):
         # Malformed version - let uv handle the error
         pass
@@ -150,7 +150,7 @@ def new(
     project_name: Annotated[
         str | None,
         typer.Argument(
-            help="The name of the new FastAPI Cloud project. If not provided, initializes in the current directory.",
+            help="The name of the new FastAPI project. If not provided, initializes in the current directory.",
         ),
     ] = None,
     python: Annotated[
@@ -158,7 +158,7 @@ def new(
         typer.Option(
             "--python",
             "-p",
-            help="Specify the Python version for the new project (e.g., 3.9). Must be 3.8 or higher.",
+            help="Specify the Python version for the new project (e.g., 3.14). Must be 3.10 or higher.",
         ),
     ] = None,
 ) -> None:
