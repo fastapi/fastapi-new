@@ -20,8 +20,8 @@ coverage/
 # Type checking
 .mypy_cache/
 
-# Virtual environment (uv)
-.venv/
+# Virtual environments
+.venv
 
 # IDE
 .vscode/
