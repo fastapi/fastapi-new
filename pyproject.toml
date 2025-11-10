@@ -1,6 +1,6 @@
 [project]
 name = "fastapi-new"
-version = "0.0.1"
+dynamic = ["version"]
 license = "MIT"
 license-files = ["LICENSE"]
 description = "Create a new FastAPI project in one command"
@@ -56,11 +56,15 @@ Issues = "https://github.com/fastapi/fastapi-new/issues"
 Changelog = "https://github.com/fastapi/fastapi-new/release-notes.md"
 
 [build-system]
-requires = ["uv_build>=0.9.1,<0.10.0"]
-build-backend = "uv_build"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [tool.mypy]
 strict = true
+
+[tool.pdm]
+version = { source = "file", path = "src/fastapi_new/__init__.py" }
+distribution = true
 
 [tool.pytest.ini_options]
 addopts = [
@@ -109,9 +113,9 @@ ignore = [
 # Preserve types, even if a file imports `from __future__ import annotations`.
 keep-runtime-typing = true
 
-[tool.uv.build-backend]
-source-include = [
-    "tests/**",
+[tool.pdm.build]
+source-includes = [
+    "tests/",
     "requirements*.txt",
-    "scripts/**",
+    "scripts/",
 ]
