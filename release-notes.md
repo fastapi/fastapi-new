@@ -10,6 +10,10 @@
 
 * 👷 Switch to dynamic versioning with `pdm` build system. PR [#11](https://github.com/fastapi/fastapi-new/pull/11) by [@tiangolo](https://github.com/tiangolo).
 
+### Docs
+
+* 📝 Add instructions to README. PR [#12](https://github.com/fastapi/fastapi-new/pull/12) by [@tiangolo](https://github.com/tiangolo).
+
 ### Internal
 
 * 🔧 Tweak tagline for `pyproject.toml`. PR [#2](https://github.com/fastapi/fastapi-new/pull/2) by [@tiangolo](https://github.com/tiangolo).
