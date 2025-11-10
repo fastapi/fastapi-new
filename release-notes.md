@@ -16,6 +16,7 @@
 
 ### Internal
 
+* ⬆ Bump actions/download-artifact from 5 to 6. PR [#6](https://github.com/fastapi/fastapi-new/pull/6) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/upload-artifact from 4 to 5. PR [#4](https://github.com/fastapi/fastapi-new/pull/4) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔧 Tweak tagline for `pyproject.toml`. PR [#2](https://github.com/fastapi/fastapi-new/pull/2) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update version of Smokeshow. PR [#3](https://github.com/fastapi/fastapi-new/pull/3) by [@tiangolo](https://github.com/tiangolo).
