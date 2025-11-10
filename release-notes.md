@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Internal
+
+* ⬆ Bump ruff from 0.14.1 to 0.14.3. PR [#7](https://github.com/fastapi/fastapi-new/pull/7) by [@dependabot[bot]](https://github.com/apps/dependabot).
+
 ## 0.0.2
 
 ### Features
