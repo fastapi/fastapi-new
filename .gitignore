@@ -1,14 +1,32 @@
-# Python-generated files
+# Python
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
 build/
 dist/
-wheels/
-*.egg-info
+*.egg-info/
+*.egg
+
+# Testing / coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage/
+.pytest_cache/
+
+# Type checking
+.mypy_cache/
 
 # Virtual environments
 .venv
 
-# Coverage
-htmlcov
-.coverage*
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
