@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 0.0.2
+
 ### Features
 
 * ✨ Add implementation of `fastapi-new` CLI, and base for `fastapi new` command. PR [#5](https://github.com/fastapi/fastapi-new/pull/5) by [@savannahostrowski](https://github.com/savannahostrowski).
