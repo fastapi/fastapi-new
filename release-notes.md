@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump actions/checkout from 5 to 6. PR [#14](https://github.com/fastapi/fastapi-new/pull/14) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#15](https://github.com/fastapi/fastapi-new/pull/15) by [@svlandeg](https://github.com/svlandeg).
 * ⬆ Bump ruff from 0.14.1 to 0.14.3. PR [#7](https://github.com/fastapi/fastapi-new/pull/7) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
