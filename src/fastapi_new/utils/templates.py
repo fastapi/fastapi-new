@@ -199,9 +199,13 @@ def to_plural(text: str) -> str:
         to_plural("user") -> "users"
         to_plural("category") -> "categories"
     """
-    if text.endswith("y") and text[-2] not in "aeiou":
+    if not text:
+        return text
+    if text.endswith("y") and len(text) > 1 and text[-2] not in "aeiou":
         return text[:-1] + "ies"
-    elif text.endswith(("s", "x", "z", "ch", "sh")):
+    elif text.endswith("z"):
+        return text + "zes"  # quiz -> quizzes
+    elif text.endswith(("s", "x", "ch", "sh")):
         return text + "es"
     return text + "s"
 

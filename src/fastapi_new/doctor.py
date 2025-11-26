@@ -174,7 +174,7 @@ def check_env_file(project_root: Path) -> list[tuple[str, bool, str]]:
 
         if "SECRET_KEY=" in content:
             # Check if it's the default
-            if "change-in-production" in content or "your-secret-key" in content:
+            if "change-in-production" in content or "change-this-in-production" in content or "your-secret-key" in content:
                 results.append(("SECRET_KEY", False, "Using default (change for production)"))
             else:
                 results.append(("SECRET_KEY", True, "Configured"))
@@ -202,10 +202,11 @@ def check_main_py(project_root: Path) -> tuple[bool, str]:
 
     content = main_py.read_text(encoding="utf-8")
 
-    # Check for FastAPI app
+    # Check for FastAPI import first
     if "FastAPI" not in content:
         return False, "FastAPI not imported"
 
+    # Check for app instance
     if "app = " not in content and "app=" not in content:
         return False, "No app instance found"
 
