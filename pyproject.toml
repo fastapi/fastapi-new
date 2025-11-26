@@ -116,10 +116,7 @@ keep-runtime-typing = true
 
 [tool.uv.workspace]
 members = [
-    "unknown_command",
-    "testapp",
-    "examples/testor",
-    "examples/tester",
+    "testapp"
 ]
 
 [tool.pdm.build]

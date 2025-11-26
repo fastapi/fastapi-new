@@ -365,8 +365,7 @@ def new(
             toolkit.print("  │   ├── main.py")
             toolkit.print("  │   ├── core/")
             toolkit.print("  │   ├── apps/")
-            toolkit.print("  │   ├── db/")
-            toolkit.print("  │   └── shared/")
+            toolkit.print("  │   └── db/")
             toolkit.print("  ├── .env")
             toolkit.print("  └── pyproject.toml")
 

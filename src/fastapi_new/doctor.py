@@ -16,7 +16,6 @@ REQUIRED_DIRS = [
     "app/core",
     "app/apps",
     "app/db",
-    "app/shared",
 ]
 
 REQUIRED_CORE_FILES = [
@@ -35,14 +34,7 @@ REQUIRED_DB_FILES = [
     "app/db/session.py",
 ]
 
-REQUIRED_SHARED_FILES = [
-    "app/shared/exceptions.py",
-]
 
-OPTIONAL_SHARED_FILES = [
-    "app/shared/utils.py",
-    "app/shared/constants.py",
-]
 
 
 def find_project_root() -> Path | None:
@@ -129,7 +121,18 @@ def check_installed_apps(project_root: Path) -> list[tuple[str, bool, str]]:
         return [("INSTALLED_APPS", False, "Could not parse INSTALLED_APPS")]
 
     list_content = match.group(1)
-    apps = re.findall(r'["\'](\w+)["\']', list_content)
+    
+    # Only find apps that are not commented out
+    # Split by lines and filter out commented lines
+    apps = []
+    for line in list_content.split('\n'):
+        # Skip empty lines and lines starting with # (comments)
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        # Extract app names from non-commented lines
+        app_matches = re.findall(r'["\'](\w+)["\']', line)
+        apps.extend(app_matches)
 
     if not apps:
         results.append(("INSTALLED_APPS", True, "Empty (no apps registered)"))
