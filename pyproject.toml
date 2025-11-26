@@ -65,6 +65,7 @@ strict = true
 [tool.pdm]
 version = { source = "file", path = "src/fastapi_new/__init__.py" }
 distribution = true
+includes = ["src/fastapi_new/templates/**/*.tpl"]
 
 [tool.pytest.ini_options]
 addopts = [
