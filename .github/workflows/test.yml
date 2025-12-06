@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
     inputs:
       debug_enabled:
-        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        description: "Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)"
         required: false
-        default: 'false'
+        default: "false"
   schedule:
     # cron every week on monday
     - cron: "0 0 * * 1"
@@ -89,7 +89,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: "3.13"
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
         with:
@@ -124,7 +124,7 @@ jobs:
           include-hidden-files: true
 
   # https://github.com/marketplace/actions/alls-green#why
-  alls-green:  # This job does nothing and is only used for the branch protection
+  alls-green: # This job does nothing and is only used for the branch protection
     if: always()
     needs:
       - coverage-combine
