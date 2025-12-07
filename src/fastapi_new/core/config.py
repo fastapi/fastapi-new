@@ -6,6 +6,7 @@ from pathlib import Path
 class ProjectConfig:
     name: str
     path: Path
+    linter: str = "none"
     orm: str = "none"
     python: str | None = None
     structure: str = "simple"

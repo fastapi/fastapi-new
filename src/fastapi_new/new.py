@@ -1,34 +1,25 @@
-from .core.generator import setup_environment, install_dependencies, write_project_files, exit_with_error
+from .core.generator import *
 from .ui.styles import get_rich_toolkit
 from .ui.wizard import run_interactive_wizard
-from fastapi_new.core.config import ProjectConfig
-from pathlib import Path
-from shutil import which
-from typer import Argument, Context, Option
 from typing import Annotated
+import shutil
+import typer
 
 
 def new(
-    ctx: Context,
-    project_name: Annotated[str | None, Argument()] = None,
-    python: Annotated[str | None, Option()] = None,
+    project_name: Annotated[str | None, typer.Argument()] = None,
+    python: Annotated[str | None, typer.Option()] = None,
 ) -> None:
-    if project_name:
-        path = Path.cwd() / project_name
-        config = ProjectConfig(name=project_name, path=path, python=python)
-    else:
-        config = run_interactive_wizard()
+    with get_rich_toolkit() as toolkit:
+        if shutil.which("uv") is None:
+            exit_with_error(toolkit, "uv is required. Please install uv first.")
+
+        config = run_interactive_wizard(default_name=project_name)
+
         if python:
             config.python = python
 
-    with get_rich_toolkit() as toolkit:
         toolkit.print_title("Creating a new project 🚀", tag="FastAPI")
-
-        if config.path.exists():
-            exit_with_error(toolkit, f"Directory '{config.name}' already exists.")
-
-        if which("uv") is None:
-            exit_with_error(toolkit, "uv is required. Please install uv first.")
 
         setup_environment(toolkit, config)
         install_dependencies(toolkit, config)

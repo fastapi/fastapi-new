@@ -38,7 +38,7 @@ def exit_with_error(toolkit: RichToolkit, error_msg: str) -> None:
     Args:
         toolkit (RichToolkit): The RichToolkit instance for printing messages.
         error_msg (str): The error message to display.
-    
+
     Returns:
         None
     """
@@ -52,7 +52,7 @@ def validate_python_version(python: str | None) -> str | None:
 
     Args:
         python (str|None): The Python version string.
-    
+
     Returns:
         str|None: An error message if the version is unsupported, otherwise None.
     """
@@ -77,7 +77,7 @@ def setup_environment(toolkit: RichToolkit, config: ProjectConfig) -> None:
     Args:
         toolkit (RichToolkit): The RichToolkit instance for printing messages.
         config (ProjectConfig): The project configuration.
-    
+
     Returns:
         None
     """
@@ -110,13 +110,14 @@ def install_dependencies(toolkit: RichToolkit, config: ProjectConfig) -> None:
     Args:
         toolkit (RichToolkit): The RichToolkit instance for printing messages.
         config (ProjectConfig): The project configuration.
-    
+
     Returns:
         None
     """
     toolkit.print("Installing dependencies & generating requirements.txt...", tag="deps")
     try:
-        deps = ["fastapi[standard]"]
+        deps = ["fastapi[standard]", "python-dotenv"]
+
         if config.orm == "sqlmodel":
             deps.append("sqlmodel")
         elif config.orm == "sqlalchemy":
@@ -129,18 +130,23 @@ def install_dependencies(toolkit: RichToolkit, config: ProjectConfig) -> None:
             deps.append("pytest")
             deps.append("httpx")
 
+        if config.linter == "ruff":
+            deps.append("ruff")
+        elif config.linter == "classic":
+            deps.extend(["black", "isort", "flake8"])
+
         subprocess.run(["uv", "add"] + deps, check=True, capture_output=True, cwd=config.path)
 
         with open(config.path / "requirements.txt", "w") as req_file:
             subprocess.run(
-                ["uv", "export", "--format", "requirements-txt"],
+                ["uv", "export", "--format", "requirements-txt", "--no-hashes", "--no-header", "--no-annotate"],
                 stdout=req_file,
                 check=True,
                 cwd=config.path
             )
 
     except subprocess.CalledProcessError as e:
-        exit_with_error(toolkit, f"Failed to install deps: {e.stderr.decode()}")
+        exit_with_error(toolkit, f"Failed to install deps: {e.stderr.decode() if e.stderr else str(e)}")
 
 
 def create_file(path: pathlib.Path, content: str = "") -> None:
@@ -150,51 +156,101 @@ def create_file(path: pathlib.Path, content: str = "") -> None:
     Args:
         path (pathlib.Path): The file path to create.
         content (str): The content to write to the file.
-    
+
     Returns:
         None
     """
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content)
+    path.write_text(content, encoding="utf-8")
 
 
 def write_project_files(toolkit: RichToolkit, config: ProjectConfig) -> None:
     """
     Write the project files based on the configuration.
+    Refactored for readability using helper functions.
 
     Args:
         toolkit (RichToolkit): The RichToolkit instance for printing messages.
         config (ProjectConfig): The project configuration.
-    
+
     Returns:
         None
     """
     toolkit.print("Scaffolding project structure...", tag="template")
     try:
-        create_file(config.path / "main.py", TEMPLATE_MAIN)
-        create_file(config.path / "README.md", generate_readme(config.name))
+        _create_base_files(config)
+        _setup_git(config)
 
         if config.views:
-            create_file(config.path / "views" / "html" /"index.html", TEMPLATE_HTML)
-            create_file(config.path / "views" / "css" /"style.css", TEMPLATE_CSS)
-            create_file(config.path / "views" / "js" / "main.js", TEMPLATE_JS)
-            create_file(config.path / "views" / "assets" / ".gitkeep", "")
+            _create_view_files(config)
+
+        if config.orm != "none":
+            _configure_database(config)
 
         if config.structure == "advanced":
-            create_file(config.path / "app" / "__init__.py")
-            create_file(config.path / "app" / "controllers" / "__init__.py")
-            create_file(config.path / "app" / "models" / "__init__.py")
-            create_file(config.path / "app" / "schemas" / "__init__.py")
+            _setup_advanced_structure(config)
 
-            create_file(config.path / "database" / "migrations" / ".gitkeep")
-            create_file(config.path / "database" / "seeders" / ".gitkeep")
-
-            if config.tests:
-                create_file(config.path / "tests" / "__init__.py")
-                create_file(config.path / "tests" / "test_main.py", "def test_example(): assert True")
-
-        if (config.path / "hello.py").exists():
-            (config.path / "hello.py").unlink()
+        hello_file = config.path / "hello.py"
+        if hello_file.exists():
+            hello_file.unlink()
 
     except Exception as e:
         exit_with_error(toolkit, f"Failed to write files: {str(e)}")
+
+
+def _create_base_files(config: ProjectConfig) -> None:
+    """Create the fundamental files for the project."""
+    create_file(config.path / "main.py", TEMPLATE_MAIN)
+    create_file(config.path / "README.md", generate_readme(config.name))
+
+
+def _setup_git(config: ProjectConfig) -> None:
+    """Create or update .gitignore."""
+    gitignore_path = config.path / ".gitignore"
+    
+    if gitignore_path.exists():
+        with open(gitignore_path, "a") as f:
+            f.write("\n" + TEMPLATE_GITIGNORE)
+    else:
+        create_file(gitignore_path, TEMPLATE_GITIGNORE)
+
+
+def _create_view_files(config: ProjectConfig) -> None:
+    """Create HTML, CSS, and JS files."""
+    base_view_path = config.path / "views"
+    create_file(base_view_path / "html" / "index.html", TEMPLATE_HTML)
+    create_file(base_view_path / "css" / "style.css", TEMPLATE_CSS)
+    create_file(base_view_path / "js" / "main.js", TEMPLATE_JS)
+    create_file(base_view_path / "assets" / ".gitkeep", "")
+
+
+def _configure_database(config: ProjectConfig) -> None:
+    """Setup database connection, env file, and gitignore."""
+    # Create database config
+    create_file(config.path / "config" / "database.py", TEMPLATE_DB_CONNECTION)
+
+    # Create .env
+    env_content = TEMPLATE_ENV.format(project_name=config.name)
+    create_file(config.path / ".env", env_content.strip())
+
+
+def _setup_advanced_structure(config: ProjectConfig) -> None:
+    """Setup MVC folders, Migrations, Tests, and Linter config."""
+    # 1. App Structure (MVC)
+    mvc_paths = ["app", "app/controllers", "app/models", "app/schemas"]
+
+    for p in mvc_paths:
+        create_file(config.path / p / "__init__.py")
+
+    # 2. Database Migrations
+    create_file(config.path / "database" / "migrations" / ".gitkeep")
+    create_file(config.path / "database" / "seeders" / ".gitkeep")
+
+    # 3. Testing
+    if config.tests:
+        create_file(config.path / "tests" / "__init__.py")
+        create_file(config.path / "tests" / "test_main.py", TEMPLATE_TESTING)
+
+    # 4. Linter
+    if config.linter == "ruff":
+        create_file(config.path / ".ruff.toml", TEMPLATE_RUFF)

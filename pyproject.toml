@@ -118,6 +118,11 @@ members = [
     "iya",
 ]
 
+[dependency-groups]
+dev = [
+    "coverage>=7.11.2",
+]
+
 [tool.pdm.build]
 source-includes = [
     "tests/",
