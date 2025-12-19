@@ -1,9 +1,8 @@
-import logging
-
-from rich_toolkit import RichToolkit, RichToolkitTheme
+from logging import getLogger
 from rich_toolkit.styles import MinimalStyle, TaggedStyle
+from rich_toolkit import RichToolkit, RichToolkitTheme
 
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 
 
 class FastAPIStyle(TaggedStyle):

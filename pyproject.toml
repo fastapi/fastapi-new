@@ -113,6 +113,16 @@ ignore = [
 # Preserve types, even if a file imports `from __future__ import annotations`.
 keep-runtime-typing = true
 
+[tool.uv.workspace]
+members = [
+    "iya",
+]
+
+[dependency-groups]
+dev = [
+    "coverage>=7.11.2",
+]
+
 [tool.pdm.build]
 source-includes = [
     "tests/",

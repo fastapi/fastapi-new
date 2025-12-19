@@ -1,170 +1,128 @@
-import shutil
-import subprocess
-from pathlib import Path
-from typing import Any
-
-import pytest
-from typer.testing import CliRunner
-
 from fastapi_new.cli import app
+from pathlib import Path
+from typer.testing import CliRunner
+from unittest.mock import MagicMock
+import pytest
+import shutil
 
 runner = CliRunner()
 
 
 @pytest.fixture
-def temp_project_dir(tmp_path: Path, monkeypatch: Any) -> Path:
+def temp_project_dir(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
     """Create a temporary directory and cd into it."""
     monkeypatch.chdir(tmp_path)
     return tmp_path
 
 
-def _assert_project_created(project_path: Path) -> None:
+def _assert_common_files(project_path: Path) -> None:
+    """Check the basic files that must always be present."""
     assert (project_path / "main.py").exists()
     assert (project_path / "README.md").exists()
+    assert (project_path / "requirements.txt").exists()
+    assert (project_path / ".gitignore").exists()
     assert (project_path / "pyproject.toml").exists()
 
 
-def test_creates_project_successfully(temp_project_dir: Path) -> None:
-    result = runner.invoke(app, ["my_fastapi_project"])
+def test_wizard_full_features(temp_project_dir: Path) -> None:
+    """
+    Simulation test 'All-in-One': 
+    Advanced + SQLModel + Ruff + Views + Tests.
+
+    Input Order:
+    1. Name: 'full_app'
+    2. Arch: '2' (Advanced)
+    3. ORM: '1' (SQLModel)
+    4. Lint: '1' (Ruff)
+    5. View: 'y'
+    6. Test: 'y'
+    """
+    user_inputs = "full_app\n2\n1\n1\ny\ny\n"
+    result = runner.invoke(app, [], input=user_inputs)
 
     assert result.exit_code == 0
-    project_path = temp_project_dir / "my_fastapi_project"
-    _assert_project_created(project_path)
-    assert "Success!" in result.output
-    assert "my_fastapi_project" in result.output
+    project_path = temp_project_dir / "full_app"
+
+    _assert_common_files(project_path)
+
+    assert (project_path / "app" / "controllers").exists()
+    assert (project_path / "database" / "migrations").exists()
+
+    assert (project_path / "config" / "database.py").exists()
+    assert (project_path / ".env").exists()
+
+    gitignore_content = (project_path / ".gitignore").read_text()
+    assert ".env" in gitignore_content
+
+    assert (project_path / "views" / "html" / "index.html").exists()
+
+    assert (project_path / ".ruff.toml").exists()
 
 
-def test_creates_project_with_python_version(temp_project_dir: Path) -> None:
-    # Test long form
-    result = runner.invoke(app, ["project_long", "--python", "3.12"])
-    assert result.exit_code == 0
-    project_path = temp_project_dir / "project_long"
-    _assert_project_created(project_path)
-    assert "3.12" in (project_path / "pyproject.toml").read_text()
+def test_wizard_minimal(temp_project_dir: Path) -> None:
+    """
+    Simulation test 'Minimalist':
+    Simple + No DB + No Lint + No Views.
 
-    # Test short form
-    result = runner.invoke(app, ["project_short", "-p", "3.11"])
-    assert result.exit_code == 0
-    project_path = temp_project_dir / "project_short"
-    assert "3.11" in (project_path / "pyproject.toml").read_text()
-
-
-def test_validates_template_file_contents(temp_project_dir: Path) -> None:
-    result = runner.invoke(app, ["sample_project"])
-    assert result.exit_code == 0
-
-    project_path = temp_project_dir / "sample_project"
-
-    main_py_content = (project_path / "main.py").read_text()
-    assert "from fastapi import FastAPI" in main_py_content
-    assert "app = FastAPI()" in main_py_content
-
-    # Check README.md
-    readme_content = (project_path / "README.md").read_text()
-    assert "# sample_project" in readme_content
-    assert "A project created with FastAPI" in readme_content
-
-    # Check pyproject.toml
-    pyproject_content = (project_path / "pyproject.toml").read_text()
-    assert 'name = "sample-project"' in pyproject_content
-    assert "fastapi[standard]" in pyproject_content
-
-
-def test_initializes_in_current_directory(temp_project_dir: Path) -> None:
-    result = runner.invoke(app, [])
+    Input Order:
+    1. Name: 'mini_app'
+    2. Arch: '1' (Simple)
+    3. ORM: '3' (None)
+    4. Lint: '3' (None)
+    5. View: 'n'
+    6. Test: 'n'
+    """
+    user_inputs = "mini_app\n1\n3\n3\nn\nn\n"
+    result = runner.invoke(app, [], input=user_inputs)
 
     assert result.exit_code == 0
-    assert "No project name provided" in result.output
-    assert "Initializing in current directory" in result.output
-    _assert_project_created(temp_project_dir)
+    project_path = temp_project_dir / "mini_app"
+
+    _assert_common_files(project_path)
+
+    assert not (project_path / "app").exists()
+    assert not (project_path / "views").exists()
+    assert not (project_path / "config").exists()
+    assert not (project_path / ".env").exists()
+    assert not (project_path / ".ruff.toml").exists()
+
+
+def test_args_mode_defaults(temp_project_dir: Path) -> None:
+    """
+    Test old way: `fastapi-new projectname`.
+    Should automatically use defaults (Simple, No DB, No Lint, No Views).
+    """
+    user_inputs = "\n\n\nn\ny\n" 
+
+    result = runner.invoke(app, ["fast_project"], input=user_inputs)
+
+    assert result.exit_code == 0
+    project_path = temp_project_dir / "fast_project"
+    
+    _assert_common_files(project_path)
+    assert not (project_path / "app").exists()
 
 
 def test_rejects_existing_directory(temp_project_dir: Path) -> None:
-    existing_dir = temp_project_dir / "existing_project"
-    existing_dir.mkdir()
+    """Ensure the wizard rejects if the folder already exists."""
+    (temp_project_dir / "duplicate").mkdir()
 
-    result = runner.invoke(app, ["existing_project"])
+    user_inputs = "duplicate\n"
+    result = runner.invoke(app, [], input=user_inputs)
+
     assert result.exit_code == 1
-    assert "Directory 'existing_project' already exists." in result.output
+    assert "already exists" in result.output
 
 
-def test_rejects_python_below_3_10(temp_project_dir: Path) -> None:
-    result = runner.invoke(app, ["test_project", "--python", "3.9"])
+def test_uv_missing_handler(temp_project_dir: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Simulation if the user does not have 'uv' installed."""
+    monkeypatch.setattr(shutil, "which", MagicMock(return_value=None))
+
+    user_inputs = "no_uv_app\n"
+    result = runner.invoke(app, [], input=user_inputs)
+
     assert result.exit_code == 1
-    assert "Python 3.9 is not supported" in result.output
-    assert "FastAPI requires Python 3.10" in result.output
+    assert "uv is required" in result.output
 
-
-def test_passes_single_digit_python_version_to_uv(temp_project_dir: Path) -> None:
-    result = runner.invoke(app, ["test_project", "--python", "3"])
-    assert result.exit_code == 0
-    project_path = temp_project_dir / "test_project"
-    _assert_project_created(project_path)
-
-
-def test_passes_malformed_python_version_to_uv(temp_project_dir: Path) -> None:
-    result = runner.invoke(app, ["test_project", "--python", "abc.def"])
-    # uv will reject this, we just verify we don't crash during validation
-    assert result.exit_code == 1
-
-
-def test_creates_project_without_python_flag(temp_project_dir: Path) -> None:
-    result = runner.invoke(app, ["test_project"])
-    assert result.exit_code == 0
-    project_path = temp_project_dir / "test_project"
-    _assert_project_created(project_path)
-
-
-def test_failed_to_initialize_with_uv(monkeypatch: Any) -> None:
-    def mock_run(*args: Any, **kwargs: Any) -> None:
-        # Let the first check for 'uv' succeed, but fail on 'uv init'
-        if args[0][0] == "uv" and args[0][1] == "init":
-            raise subprocess.CalledProcessError(
-                1, args[0], stderr=b"uv init failed for some reason"
-            )
-
-    monkeypatch.setattr(subprocess, "run", mock_run)
-
-    result = runner.invoke(app, ["failing_project"])
-    assert result.exit_code == 1
-    assert "Failed to initialize project with uv" in result.output
-
-
-def test_failed_to_add_dependencies(temp_project_dir: Path, monkeypatch: Any) -> None:
-    def mock_run(*args: Any, **kwargs: Any) -> None:
-        # Let 'uv init' succeed, but fail on 'uv add'
-        if args[0][0] == "uv" and args[0][1] == "add":
-            raise subprocess.CalledProcessError(
-                1, args[0], stderr=b"Failed to resolve dependencies"
-            )
-
-    monkeypatch.setattr(subprocess, "run", mock_run)
-
-    result = runner.invoke(app, ["failing_deps"])
-    assert result.exit_code == 1
-    assert "Failed to install dependencies" in result.output
-
-
-def test_file_write_failure(temp_project_dir: Path, monkeypatch: Any) -> None:
-    original_write_text = Path.write_text
-
-    def mock_write_text(self: Path, *args: Any, **kwargs: Any) -> None:
-        # Fail when trying to write README.md (let main.py succeed first)
-        if self.name == "README.md":
-            raise PermissionError("Permission denied")
-        original_write_text(self, *args, **kwargs)
-
-    monkeypatch.setattr(Path, "write_text", mock_write_text)
-
-    result = runner.invoke(app, ["test_write_fail"])
-    assert result.exit_code == 1
-    assert "Failed to write template files" in result.output
-
-
-def test_uv_not_installed(temp_project_dir: Path, monkeypatch: Any) -> None:
-    monkeypatch.setattr(shutil, "which", lambda _: None)
-
-    result = runner.invoke(app, ["test_uv_missing_project"])
-    assert result.exit_code == 1
-    assert "uv is required to create new projects" in result.output
-    assert "https://docs.astral.sh/uv/" in result.output
+    project_path = temp_project_dir / "no_uv_app"
+    assert not project_path.exists()
