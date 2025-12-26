@@ -248,7 +248,7 @@ def test_failed_to_initialize_with_uv(monkeypatch: Any, temp_project_dir: Path) 
                 1, cmd, stderr=b"uv init failed for some reason"
             )
         # Return success for other calls
-        return type("Result", (), {"returncode": 0, "stdout": b"", "stderr": b""})()
+        return type("Result", (), {"returncode": 0, "stdout": b"", "stderr": b""})()  # pragma: no cover
 
     monkeypatch.setattr(subprocess, "run", mock_run)
 

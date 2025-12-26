@@ -86,6 +86,9 @@ source = [
 context = '${CONTEXT}'
 dynamic_context = "test_function"
 relative_files = true
+omit = [
+    "src/fastapi_new/__main__.py",
+]
 
 [tool.coverage.report]
 show_missing = true
