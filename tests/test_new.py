@@ -121,7 +121,7 @@ def test_validates_readme_contents(temp_project_dir: Path) -> None:
     assert result.exit_code == 0
 
     project_path = temp_project_dir / "readme_project"
-    readme_content = (project_path / "README.md").read_text()
+    readme_content = (project_path / "README.md").read_text(encoding="utf-8")
 
     assert "readme_project" in readme_content or "FastAPI" in readme_content
 
