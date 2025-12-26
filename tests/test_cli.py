@@ -115,8 +115,10 @@ class TestCLIScript:
 class TestCLIErrorHandling:
     """Tests for CLI error handling."""
 
-    def test_unknown_command(self) -> None:
+    def test_unknown_command(self, tmp_path: Any, monkeypatch: Any) -> None:
         """Test that unknown commands are routed to 'new' command by design."""
+        # Change to temp directory to avoid creating files in project root
+        monkeypatch.chdir(tmp_path)
         result = runner.invoke(app, ["unknown_command"])
 
         # By design, unknown commands are treated as project names and routed to 'new'
