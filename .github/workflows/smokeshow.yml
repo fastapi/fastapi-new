@@ -15,7 +15,6 @@ env:
 
 jobs:
   smokeshow:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -30,13 +29,11 @@ jobs:
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.4.15"
-          enable-cache: true
           cache-dependency-glob: |
             requirements**.txt
             pyproject.toml
       - run: uv pip install -r requirements-tests.txt
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: coverage-html
           path: htmlcov

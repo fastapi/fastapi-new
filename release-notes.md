@@ -4,6 +4,11 @@
 
 ### Internal
 
+* ⬆ Bump actions/download-artifact from 6 to 7. PR [#22](https://github.com/fastapi/fastapi-new/pull/22) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump actions/upload-artifact from 5 to 6. PR [#21](https://github.com/fastapi/fastapi-new/pull/21) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* 👷 Add pre-commit workflow. PR [#25](https://github.com/fastapi/fastapi-new/pull/25) by [@YuriiMotov](https://github.com/YuriiMotov).
+* 👷 Configure coverage, error on main tests, don't wait for Smokeshow. PR [#24](https://github.com/fastapi/fastapi-new/pull/24) by [@YuriiMotov](https://github.com/YuriiMotov).
+* 👷 Run Smokeshow always, even on test failures. PR [#23](https://github.com/fastapi/fastapi-new/pull/23) by [@YuriiMotov](https://github.com/YuriiMotov).
 * ⬆ Bump actions/checkout from 5 to 6. PR [#16](https://github.com/fastapi/fastapi-new/pull/16) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/checkout from 5 to 6. PR [#14](https://github.com/fastapi/fastapi-new/pull/14) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#15](https://github.com/fastapi/fastapi-new/pull/15) by [@svlandeg](https://github.com/svlandeg).
