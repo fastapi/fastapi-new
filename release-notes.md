@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 👷 Add pre-commit workflow. PR [#25](https://github.com/fastapi/fastapi-new/pull/25) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 👷 Configure coverage, error on main tests, don't wait for Smokeshow. PR [#24](https://github.com/fastapi/fastapi-new/pull/24) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 👷 Run Smokeshow always, even on test failures. PR [#23](https://github.com/fastapi/fastapi-new/pull/23) by [@YuriiMotov](https://github.com/YuriiMotov).
 * ⬆ Bump actions/checkout from 5 to 6. PR [#16](https://github.com/fastapi/fastapi-new/pull/16) by [@dependabot[bot]](https://github.com/apps/dependabot).
