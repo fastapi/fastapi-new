@@ -29,7 +29,6 @@ def _assert_project_structure_created(project_path: Path) -> None:
     assert (project_path / "app" / "core").exists()
     assert (project_path / "app" / "apps").exists()
     assert (project_path / "app" / "db").exists()
-    assert (project_path / "app" / "shared").exists()
 
     # Check core files
     assert (project_path / "app" / "main.py").exists()
@@ -40,9 +39,6 @@ def _assert_project_structure_created(project_path: Path) -> None:
     # Check db files
     assert (project_path / "app" / "db" / "base.py").exists()
     assert (project_path / "app" / "db" / "session.py").exists()
-
-    # Check shared files
-    assert (project_path / "app" / "shared" / "exceptions.py").exists()
 
     # Check root files
     assert (project_path / "pyproject.toml").exists()
@@ -216,39 +212,7 @@ def test_creates_project_without_python_flag(temp_project_dir: Path) -> None:
 # Removed test for db/engines directory - intentionally deleted in simplification
 
 
-def test_creates_shared_module_files(temp_project_dir: Path) -> None:
-    """Test that shared module files are created."""
-    result = runner.invoke(app, ["shared_project"])
-    assert result.exit_code == 0
-
-    project_path = temp_project_dir / "shared_project"
-    shared_dir = project_path / "app" / "shared"
-
-    assert (shared_dir / "exceptions.py").exists()
-    assert (shared_dir / "utils.py").exists()
-    assert (shared_dir / "constants.py").exists()
-
-
-def test_creates_tests_directory(temp_project_dir: Path) -> None:
-    """Test that tests directory is created."""
-    result = runner.invoke(app, ["tests_project"])
-    assert result.exit_code == 0
-
-    project_path = temp_project_dir / "tests_project"
-    tests_dir = project_path / "app" / "tests"
-
-    assert tests_dir.exists()
-
-
-def test_creates_plugins_directory(temp_project_dir: Path) -> None:
-    """Test that plugins directory is created."""
-    result = runner.invoke(app, ["plugins_project"])
-    assert result.exit_code == 0
-
-    project_path = temp_project_dir / "plugins_project"
-    plugins_dir = project_path / "app" / "plugins"
-
-    assert plugins_dir.exists()
+# Removed tests for shared/, tests/, and plugins/ directories - template was simplified
 
 
 def test_shows_next_steps(temp_project_dir: Path) -> None:
