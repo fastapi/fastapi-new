@@ -141,7 +141,6 @@ wheels = [
 
 [[package]]
 name = "fastapi-new"
-version = "0.0.1"
 source = { editable = "." }
 dependencies = [
     { name = "prek" },
@@ -163,7 +162,7 @@ dev = [
 requires-dist = [
     { name = "coverage", extras = ["toml"], marker = "extra == 'dev'", specifier = ">=7.0.0" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.8.0" },
-    { name = "prek", specifier = "==0.2.24" },
+    { name = "prek", specifier = ">=0.2.24,<1.0.0" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0.0" },
     { name = "rich", specifier = ">=13.0.0" },
     { name = "rich-toolkit", specifier = ">=0.15.1" },
