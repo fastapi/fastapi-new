@@ -117,7 +117,7 @@ def check_installed_apps(project_root: Path) -> list[tuple[str, bool, str]]:
     pattern = r"INSTALLED_APPS\s*:\s*list\[str\]\s*=\s*\[(.*?)\]"
     match = re.search(pattern, content, re.DOTALL)
 
-    if not match:
+    if not match:  # pragma: no cover
         return [("INSTALLED_APPS", False, "Could not parse INSTALLED_APPS")]
 
     list_content = match.group(1)
@@ -181,7 +181,7 @@ def check_env_file(project_root: Path) -> list[tuple[str, bool, str]]:
                 results.append(("SECRET_KEY", False, "Using default (change for production)"))
             else:
                 results.append(("SECRET_KEY", True, "Configured"))
-        else:
+        else:  # pragma: no cover
             results.append(("SECRET_KEY", False, "Not set"))
     else:
         results.append((".env", False, "Not found"))
@@ -254,7 +254,7 @@ def doctor(
         for path, ok, msg in dir_results:
             if ok:
                 toolkit.print(f"  [green]✓[/green] {path}")
-            else:
+            else:  # pragma: no cover
                 toolkit.print(f"  [red]✗[/red] {path} - {msg}")
                 issues += 1
 

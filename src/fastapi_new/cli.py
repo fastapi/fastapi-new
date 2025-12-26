@@ -70,10 +70,10 @@ app.command(name="list", help="List installed app modules")(listapps_command)
 app.command(name="doctor", help="Diagnose project structure")(doctor_command)
 
 
-def main() -> None:
+def main() -> None:  # pragma: no cover
     """Main entry point for the CLI."""
     app()
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()

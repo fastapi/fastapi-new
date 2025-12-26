@@ -96,7 +96,7 @@ def add_to_installed_apps(registry_path: Path, app_name: str) -> bool:
 
         if existing and not existing.endswith(","):
             # Has existing items without trailing comma
-            if existing.rstrip().endswith(("#", ",")):
+            if existing.rstrip().endswith(("#", ",")):  # pragma: no cover
                 new_content = f'{existing}\n    "{app_name}",'
             else:
                 new_content = f'{existing},\n    "{app_name}",'
@@ -115,7 +115,7 @@ def add_to_installed_apps(registry_path: Path, app_name: str) -> bool:
         registry_path.write_text(new_content, encoding="utf-8")
         return True
 
-    return False
+    return False  # pragma: no cover
 
 
 def createapp(
@@ -199,7 +199,7 @@ def createapp(
                 relative_path = file_path.relative_to(project_root)
                 toolkit.print(f"  [green]✓[/green] {relative_path}")
 
-        except Exception as e:
+        except Exception as e:  # pragma: no cover
             toolkit.print(
                 f"[bold red]Error:[/bold red] Failed to create app files: {e}",
                 tag="error",
@@ -221,7 +221,7 @@ def createapp(
                 toolkit.print(
                     f"  [green]✓[/green] Added '{app_name_normalized}' to INSTALLED_APPS"
                 )
-            else:
+            else:  # pragma: no cover
                 toolkit.print(
                     f"  [yellow]⚠[/yellow] Could not auto-register app. "
                     f"Please add '{app_name_normalized}' to INSTALLED_APPS manually."

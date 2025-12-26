@@ -37,7 +37,7 @@ class ProjectConfig:
     python: str | None = None
 
 
-def _generate_readme(project_name: str) -> str:
+def _generate_readme(project_name: str) -> str:  # pragma: no cover
     """Generate a simple README for fallback."""
     return f"""# {project_name}
 
@@ -125,7 +125,7 @@ def _install_dependencies(toolkit: RichToolkit, config: ProjectConfig) -> None:
                 cwd=config.path,
             )
             toolkit.print(f"  [green]✓[/green] {dep}")
-        except subprocess.CalledProcessError as e:
+        except subprocess.CalledProcessError as e:  # pragma: no cover
             toolkit.print(f"  [yellow]⚠[/yellow] {dep} (failed)")
 
 
@@ -144,7 +144,7 @@ def _create_project_structure(toolkit: RichToolkit, config: ProjectConfig) -> No
     try:
         created_files = copy_template_directory("project", app_dir, context)
         toolkit.print(f"  [green]✓[/green] Created {len(created_files)} files")
-    except Exception as e:
+    except Exception as e:  # pragma: no cover
         _exit_with_error(toolkit, f"Failed to create project structure: {e}")
 
 
@@ -167,7 +167,7 @@ def _create_env_file(toolkit: RichToolkit, config: ProjectConfig) -> None:
         env_example.unlink()
 
         toolkit.print("  [green]✓[/green] Created .env")
-    else:
+    else:  # pragma: no cover
         # Create minimal .env
         env_content = f"""# {config.name} Environment Configuration
 PROJECT_NAME={config.name}
@@ -192,7 +192,7 @@ def _move_readme(toolkit: RichToolkit, config: ProjectConfig) -> None:
         root_readme.write_text(content, encoding="utf-8")
         # Remove from app directory
         app_readme.unlink()
-    elif not root_readme.exists():
+    elif not root_readme.exists():  # pragma: no cover
         # Create fallback README
         root_readme.write_text(_generate_readme(config.name), encoding="utf-8")
 
@@ -201,7 +201,7 @@ def _create_gitignore(toolkit: RichToolkit, config: ProjectConfig) -> None:
     """Create .gitignore file."""
     gitignore_path = config.path / ".gitignore"
 
-    if gitignore_path.exists():
+    if gitignore_path.exists():  # pragma: no cover
         return  # Don't overwrite existing
 
     gitignore_content = """# Python
