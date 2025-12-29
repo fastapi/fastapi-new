@@ -15,11 +15,9 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: ⬆
-    labels: [dependencies, internal]
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "monthly"
     commit-message:
       prefix: ⬆
-    labels: [dependencies, internal]
