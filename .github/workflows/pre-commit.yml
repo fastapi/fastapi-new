@@ -47,6 +47,7 @@ jobs:
           cache-dependency-glob: |
             pyproject.toml
             uv.lock
+      - run: uv pip install -r requirements-tests.txt
       - name: Run prek - pre-commit
         id: precommit
         run: uvx prek run --from-ref origin/${GITHUB_BASE_REF} --to-ref HEAD --show-diff-on-failure
