@@ -7,6 +7,7 @@ on:
       - synchronize
 
 env:
+  UV_SYSTEM_PYTHON: 1
   # Forks and Dependabot don't have access to secrets
   HAS_SECRETS: ${{ secrets.PRE_COMMIT != '' }}
 
