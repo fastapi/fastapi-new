@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Docs
+
+* 📝 Update generated README content. PR [#28](https://github.com/fastapi/fastapi-new/pull/28) by [@alejsdev](https://github.com/alejsdev).
+
 ### Internal
 
 * 👷 Update install for pre-commit action. PR [#29](https://github.com/fastapi/fastapi-new/pull/29) by [@tiangolo](https://github.com/tiangolo).
