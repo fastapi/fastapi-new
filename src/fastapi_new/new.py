@@ -32,7 +32,7 @@ A project created with FastAPI CLI.
 
 ## Quick Start
 
-### Start the development server:
+### Start the development server
 
 ```bash
 uv run fastapi dev
@@ -40,9 +40,9 @@ uv run fastapi dev
 
 Visit http://localhost:8000
 
-### Deploy to FastAPI Cloud:
+### Deploy to FastAPI Cloud
 
-> Reader's note: These commands are not quite ready for prime time yet, but will be soon! Join the waiting list at https://fastapicloud.com!
+> FastAPI Cloud is currently in private beta. Join the waitlist at https://fastapicloud.com
 
 ```bash
 uv run fastapi login
