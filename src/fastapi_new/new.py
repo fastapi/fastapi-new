@@ -38,11 +38,11 @@ A project created with FastAPI CLI.
 uv run fastapi dev
 ```
 
-Visit <http://localhost:8000>
+Visit http://localhost:8000
 
 ### Deploy to FastAPI Cloud
 
-> FastAPI Cloud is currently in private beta. Join the wailist at [FastAPI Cloud](https://fastapicloud.com)!
+> FastAPI Cloud is currently in private beta. Join the wailist at https://fastapicloud.com
 
 ```bash
 uv run fastapi login
