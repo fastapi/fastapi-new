@@ -38,7 +38,7 @@ A project created with FastAPI CLI.
 uv run fastapi dev
 ```
 
-Visit [http://localhost:8000](http://localhost:8000)
+Visit <http://localhost:8000>
 
 ### Deploy to FastAPI Cloud
 
