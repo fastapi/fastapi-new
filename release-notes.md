@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 👷 Update install for pre-commit action. PR [#29](https://github.com/fastapi/fastapi-new/pull/29) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump actions/download-artifact from 6 to 7. PR [#22](https://github.com/fastapi/fastapi-new/pull/22) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/upload-artifact from 5 to 6. PR [#21](https://github.com/fastapi/fastapi-new/pull/21) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Add pre-commit workflow. PR [#25](https://github.com/fastapi/fastapi-new/pull/25) by [@YuriiMotov](https://github.com/YuriiMotov).
