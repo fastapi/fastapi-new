@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 0.0.3
+
 ### Docs
 
 * 📝 Update generated README content. PR [#28](https://github.com/fastapi/fastapi-new/pull/28) by [@alejsdev](https://github.com/alejsdev).
