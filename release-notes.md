@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump mypy from 1.18.2 to 1.19.1. PR [#30](https://github.com/fastapi/fastapi-new/pull/30) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/checkout from 5 to 6. PR [#26](https://github.com/fastapi/fastapi-new/pull/26) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ruff from 0.14.4 to 0.14.10. PR [#31](https://github.com/fastapi/fastapi-new/pull/31) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
