@@ -107,7 +107,7 @@ def _setup(toolkit: RichToolkit, config: ProjectConfig) -> None:
     if config.path == pathlib.Path.cwd():
         init_cmd = ["uv", "init", "--bare"]
     else:
-        init_cmd = ["uv", "init", "--bare", config.name]
+        init_cmd = ["uv", "init", "--bare", str(config.path)]
 
     if config.python:
         init_cmd.extend(["--python", config.python])
@@ -167,10 +167,7 @@ def new(
     else:
         path = pathlib.Path.cwd()
 
-    project_name = None
-
-    if path != pathlib.Path.cwd():
-        project_name = project
+    current_dir = path == pathlib.Path.cwd()
 
     config = ProjectConfig(
         name=path.name,
@@ -183,16 +180,16 @@ def new(
 
         toolkit.print_line()
 
-        if not project_name:
+        if current_dir:
             toolkit.print(
-                f"[yellow]⚠️  No project name provided. Initializing in current directory: {path}[/yellow]",
+                f"[yellow]⚠️ Initializing in current directory: {config.path}[/yellow]",
                 tag="warning",
             )
             toolkit.print_line()
 
         # Check if project directory already exists (only for new subdirectory)
-        if project_name and config.path.exists():
-            _exit_with_error(toolkit, f"Directory '{project_name}' already exists.")
+        if not current_dir and config.path.exists():
+            _exit_with_error(toolkit, f"Directory '{config.name}' already exists.")
 
         if shutil.which("uv") is None:
             _exit_with_error(
@@ -213,16 +210,16 @@ def new(
         toolkit.print_line()
 
         # Print success message
-        if project_name:
+        if not current_dir:
             toolkit.print(
-                f"[bold green]✨ Success![/bold green] Created FastAPI project: [cyan]{project_name}[/cyan]",
+                f"[bold green]✨ Success![/bold green] Created FastAPI project: [cyan]{config.name}[/cyan]",
                 tag="success",
             )
 
             toolkit.print_line()
 
             toolkit.print("[bold]Next steps:[/bold]")
-            toolkit.print(f"  [dim]$[/dim] cd {project_name}")
+            toolkit.print(f"  [dim]$[/dim] cd {config.name}")
             toolkit.print("  [dim]$[/dim] uv run fastapi dev")
         else:
             toolkit.print(
