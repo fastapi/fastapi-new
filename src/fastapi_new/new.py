@@ -147,10 +147,10 @@ def _write_template_files(toolkit: RichToolkit, config: ProjectConfig) -> None:
 
 def new(
     ctx: typer.Context,
-    project_name: Annotated[
+    project: Annotated[
         str | None,
         typer.Argument(
-            help="The name of the new FastAPI project. If not provided, initializes in the current directory.",
+            help="The name/path of the new FastAPI project. If not provided, initializes in the current directory.",
         ),
     ] = None,
     python: Annotated[
@@ -162,18 +162,18 @@ def new(
         ),
     ] = None,
 ) -> None:
-    if project_name == ".":
-        project_name = None
-
-    if project_name:
-        name = project_name
-        path = pathlib.Path.cwd() / project_name
+    if project:
+        path = (pathlib.Path.cwd() / project).resolve()
     else:
-        name = pathlib.Path.cwd().name
         path = pathlib.Path.cwd()
 
+    project_name = None
+
+    if path != pathlib.Path.cwd():
+        project_name = project
+
     config = ProjectConfig(
-        name=name,
+        name=path.name,
         path=path,
         python=python,
     )
