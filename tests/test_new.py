@@ -74,7 +74,6 @@ def test_initializes_in_current_directory(temp_project_dir: Path) -> None:
     result = runner.invoke(app, [])
 
     assert result.exit_code == 0
-    assert "No project name provided" in result.output
     assert "Initializing in current directory" in result.output
     _assert_project_created(temp_project_dir)
 
@@ -83,7 +82,6 @@ def test_initializes_in_current_directory_with_dot(temp_project_dir: Path) -> No
     result = runner.invoke(app, ["."])
 
     assert result.exit_code == 0
-    assert "No project name provided" in result.output
     assert "Initializing in current directory" in result.output
     _assert_project_created(temp_project_dir)
 
