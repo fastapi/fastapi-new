@@ -162,6 +162,9 @@ def new(
         ),
     ] = None,
 ) -> None:
+    if project_name == ".":
+        project_name = None
+
     if project_name:
         name = project_name
         path = pathlib.Path.cwd() / project_name
