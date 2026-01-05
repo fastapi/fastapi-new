@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Fixes
+
+* 🐛 Handle project name initialization for current directory. PR [#32](https://github.com/fastapi/fastapi-new/pull/32) by [@alejsdev](https://github.com/alejsdev).
+
 ### Internal
 
 * ⬆ Bump mypy from 1.18.2 to 1.19.1. PR [#30](https://github.com/fastapi/fastapi-new/pull/30) by [@dependabot[bot]](https://github.com/apps/dependabot).
