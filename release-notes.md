@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 0.0.4
+
 ### Fixes
 
 * 🐛 Handle project name initialization for current directory. PR [#32](https://github.com/fastapi/fastapi-new/pull/32) by [@alejsdev](https://github.com/alejsdev).
