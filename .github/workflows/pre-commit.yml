@@ -7,7 +7,6 @@ on:
       - synchronize
 
 env:
-  UV_SYSTEM_PYTHON: 1
   # Forks and Dependabot don't have access to secrets
   HAS_SECRETS: ${{ secrets.PRE_COMMIT != '' }}
 
@@ -41,14 +40,15 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.14"
+          python-version-file: ".python-version"
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
         with:
           cache-dependency-glob: |
             pyproject.toml
             uv.lock
-      - run: uv pip install -r requirements-tests.txt
+      - name: Install Dependencies
+        run: uv sync --locked
       - name: Run prek - pre-commit
         id: precommit
         run: uvx prek run --from-ref origin/${GITHUB_BASE_REF} --to-ref HEAD --show-diff-on-failure
