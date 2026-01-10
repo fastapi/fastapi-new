@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Internal
+
+* ⬆️  Migrate to uv. PR [#33](https://github.com/fastapi/fastapi-new/pull/33) by [@DoctorJohn](https://github.com/DoctorJohn).
+
 ## 0.0.4
 
 ### Fixes
