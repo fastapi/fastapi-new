@@ -9,9 +9,6 @@ on:
       - opened
       - synchronize
 
-env:
-  UV_SYSTEM_PYTHON: 1
-
 jobs:
   test-redistribute:
     runs-on: ubuntu-latest
@@ -24,12 +21,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.10"
+          python-version-file: ".python-version"
       # Needed to run tests
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.9.6"
           enable-cache: true
       - name: Verify uv is available
         run: uv --version
@@ -44,7 +40,7 @@ jobs:
       - name: Install test dependencies
         run: |
           cd dist/fastapi_new*/
-          pip install -r requirements-tests.txt
+          pip install --group tests --editable .
       - name: Run source distribution tests
         run: |
           cd dist/fastapi_new*/

@@ -15,9 +15,3 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: ⬆
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "monthly"
-    commit-message:
-      prefix: ⬆
