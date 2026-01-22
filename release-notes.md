@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 🔧 Ensure that an edit to `uv.lock` gets the `internal` label. PR [#34](https://github.com/fastapi/fastapi-new/pull/34) by [@svlandeg](https://github.com/svlandeg).
 * ⬆️  Migrate to uv. PR [#33](https://github.com/fastapi/fastapi-new/pull/33) by [@DoctorJohn](https://github.com/DoctorJohn).
 
 ## 0.0.4
