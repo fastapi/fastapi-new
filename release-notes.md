@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump prek from 0.2.24 to 0.3.1. PR [#39](https://github.com/fastapi/fastapi-new/pull/39) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump pytest from 9.0.0 to 9.0.2. PR [#38](https://github.com/fastapi/fastapi-new/pull/38) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typer from 0.20.0 to 0.21.1. PR [#36](https://github.com/fastapi/fastapi-new/pull/36) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich-toolkit from 0.15.1 to 0.18.1. PR [#35](https://github.com/fastapi/fastapi-new/pull/35) by [@dependabot[bot]](https://github.com/apps/dependabot).
