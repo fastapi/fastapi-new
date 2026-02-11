@@ -191,10 +191,10 @@ tests = [
 
 [package.metadata]
 requires-dist = [
-    { name = "rich", specifier = ">=13.0.0" },
+    { name = "rich", specifier = ">=13.7.1" },
     { name = "rich-toolkit", specifier = ">=0.15.1" },
-    { name = "typer", specifier = ">=0.12.0" },
-    { name = "typing-extensions", specifier = ">=4.8.0" },
+    { name = "typer", specifier = ">=0.16.0" },
+    { name = "typing-extensions", specifier = ">=4.12.2" },
 ]
 
 [package.metadata.requires-dev]
