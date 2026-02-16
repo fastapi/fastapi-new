@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 0.0.5
+
 ### Internal
 
 * 👷 Run tests with lower bound uv sync, upgrade minimum dependencies. PR [#41](https://github.com/fastapi/fastapi-new/pull/41) by [@YuriiMotov](https://github.com/YuriiMotov).
