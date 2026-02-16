@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 👷 Run tests with lower bound uv sync, upgrade minimum dependencies. PR [#41](https://github.com/fastapi/fastapi-new/pull/41) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 👷 Run mypy by pre-commit. PR [#40](https://github.com/fastapi/fastapi-new/pull/40) by [@YuriiMotov](https://github.com/YuriiMotov).
 * ⬆ Bump ruff from 0.14.10 to 0.14.14. PR [#37](https://github.com/fastapi/fastapi-new/pull/37) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump prek from 0.2.24 to 0.3.1. PR [#39](https://github.com/fastapi/fastapi-new/pull/39) by [@dependabot[bot]](https://github.com/apps/dependabot).
