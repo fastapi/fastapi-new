@@ -2,7 +2,7 @@
 
 ## Latest Changes
 
-## 0.0.5
+## 0.0.5 (2026-02-16)
 
 ### Internal
 
@@ -16,7 +16,7 @@
 * 🔧 Ensure that an edit to `uv.lock` gets the `internal` label. PR [#34](https://github.com/fastapi/fastapi-new/pull/34) by [@svlandeg](https://github.com/svlandeg).
 * ⬆️  Migrate to uv. PR [#33](https://github.com/fastapi/fastapi-new/pull/33) by [@DoctorJohn](https://github.com/DoctorJohn).
 
-## 0.0.4
+## 0.0.4 (2026-01-05)
 
 ### Fixes
 
@@ -28,7 +28,7 @@
 * ⬆ Bump actions/checkout from 5 to 6. PR [#26](https://github.com/fastapi/fastapi-new/pull/26) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ruff from 0.14.4 to 0.14.10. PR [#31](https://github.com/fastapi/fastapi-new/pull/31) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
-## 0.0.3
+## 0.0.3 (2025-12-29)
 
 ### Docs
 
@@ -48,7 +48,7 @@
 * 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#15](https://github.com/fastapi/fastapi-new/pull/15) by [@svlandeg](https://github.com/svlandeg).
 * ⬆ Bump ruff from 0.14.1 to 0.14.3. PR [#7](https://github.com/fastapi/fastapi-new/pull/7) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
-## 0.0.2
+## 0.0.2 (2025-11-10)
 
 ### Features
 
