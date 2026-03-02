@@ -2,6 +2,14 @@
 
 ## Latest Changes
 
+### Internal
+
+* ⬆ Bump typer from 0.21.1 to 0.24.1. PR [#45](https://github.com/fastapi/fastapi-new/pull/45) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump rich-toolkit from 0.18.1 to 0.19.7. PR [#46](https://github.com/fastapi/fastapi-new/pull/46) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump prek from 0.3.1 to 0.3.4. PR [#47](https://github.com/fastapi/fastapi-new/pull/47) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump rich from 14.2.0 to 14.3.3. PR [#48](https://github.com/fastapi/fastapi-new/pull/48) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump ruff from 0.14.14 to 0.15.4. PR [#49](https://github.com/fastapi/fastapi-new/pull/49) by [@dependabot[bot]](https://github.com/apps/dependabot).
+
 ## 0.0.5 (2026-02-16)
 
 ### Internal
