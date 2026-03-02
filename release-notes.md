@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump actions/download-artifact from 7 to 8. PR [#44](https://github.com/fastapi/fastapi-new/pull/44) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typer from 0.21.1 to 0.24.1. PR [#45](https://github.com/fastapi/fastapi-new/pull/45) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich-toolkit from 0.18.1 to 0.19.7. PR [#46](https://github.com/fastapi/fastapi-new/pull/46) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump prek from 0.3.1 to 0.3.4. PR [#47](https://github.com/fastapi/fastapi-new/pull/47) by [@dependabot[bot]](https://github.com/apps/dependabot).
