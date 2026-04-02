@@ -4,6 +4,12 @@
 
 ### Internal
 
+* ⬆ Bump ruff from 0.15.4 to 0.15.8. PR [#54](https://github.com/fastapi/fastapi-new/pull/54) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump ty from 0.0.21 to 0.0.27. PR [#55](https://github.com/fastapi/fastapi-new/pull/55) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump prek from 0.3.4 to 0.3.8. PR [#56](https://github.com/fastapi/fastapi-new/pull/56) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* 👷 Add `ty` to precommit. PR [#51](https://github.com/fastapi/fastapi-new/pull/51) by [@svlandeg](https://github.com/svlandeg).
+* ⬆ Bump actions/upload-artifact from 6 to 7. PR [#43](https://github.com/fastapi/fastapi-new/pull/43) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump actions/download-artifact from 7 to 8. PR [#44](https://github.com/fastapi/fastapi-new/pull/44) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typer from 0.21.1 to 0.24.1. PR [#45](https://github.com/fastapi/fastapi-new/pull/45) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich-toolkit from 0.18.1 to 0.19.7. PR [#46](https://github.com/fastapi/fastapi-new/pull/46) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump prek from 0.3.1 to 0.3.4. PR [#47](https://github.com/fastapi/fastapi-new/pull/47) by [@dependabot[bot]](https://github.com/apps/dependabot).
