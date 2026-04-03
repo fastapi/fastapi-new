@@ -4,6 +4,20 @@
 
 ### Internal
 
+* 🔨 Add pre-commit hook to ensure latest release header has date. PR [#42](https://github.com/fastapi/fastapi-new/pull/42) by [@YuriiMotov](https://github.com/YuriiMotov).
+
+## 0.0.6 (2026-04-03)
+
+### Docs
+
+* 📝 Remove login command from README instructions. PR [#57](https://github.com/fastapi/fastapi-new/pull/57) by [@alejsdev](https://github.com/alejsdev).
+
+### Internal
+
+* ⬆ Bump mypy from 1.19.1 to 1.20.0. PR [#53](https://github.com/fastapi/fastapi-new/pull/53) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump ruff from 0.15.4 to 0.15.8. PR [#54](https://github.com/fastapi/fastapi-new/pull/54) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump ty from 0.0.21 to 0.0.27. PR [#55](https://github.com/fastapi/fastapi-new/pull/55) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump prek from 0.3.4 to 0.3.8. PR [#56](https://github.com/fastapi/fastapi-new/pull/56) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Add `ty` to precommit. PR [#51](https://github.com/fastapi/fastapi-new/pull/51) by [@svlandeg](https://github.com/svlandeg).
 * ⬆ Bump actions/upload-artifact from 6 to 7. PR [#43](https://github.com/fastapi/fastapi-new/pull/43) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/download-artifact from 7 to 8. PR [#44](https://github.com/fastapi/fastapi-new/pull/44) by [@dependabot[bot]](https://github.com/apps/dependabot).
@@ -13,7 +27,7 @@
 * ⬆ Bump rich from 14.2.0 to 14.3.3. PR [#48](https://github.com/fastapi/fastapi-new/pull/48) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ruff from 0.14.14 to 0.15.4. PR [#49](https://github.com/fastapi/fastapi-new/pull/49) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
-## 0.0.5
+## 0.0.5 (2026-02-16)
 
 ### Internal
 
@@ -27,7 +41,7 @@
 * 🔧 Ensure that an edit to `uv.lock` gets the `internal` label. PR [#34](https://github.com/fastapi/fastapi-new/pull/34) by [@svlandeg](https://github.com/svlandeg).
 * ⬆️  Migrate to uv. PR [#33](https://github.com/fastapi/fastapi-new/pull/33) by [@DoctorJohn](https://github.com/DoctorJohn).
 
-## 0.0.4
+## 0.0.4 (2026-01-05)
 
 ### Fixes
 
@@ -39,7 +53,7 @@
 * ⬆ Bump actions/checkout from 5 to 6. PR [#26](https://github.com/fastapi/fastapi-new/pull/26) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ruff from 0.14.4 to 0.14.10. PR [#31](https://github.com/fastapi/fastapi-new/pull/31) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
-## 0.0.3
+## 0.0.3 (2025-12-29)
 
 ### Docs
 
@@ -59,7 +73,7 @@
 * 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#15](https://github.com/fastapi/fastapi-new/pull/15) by [@svlandeg](https://github.com/svlandeg).
 * ⬆ Bump ruff from 0.14.1 to 0.14.3. PR [#7](https://github.com/fastapi/fastapi-new/pull/7) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
-## 0.0.2
+## 0.0.2 (2025-11-10)
 
 ### Features
 
@@ -82,6 +96,6 @@
 * 👷 Update version of Smokeshow. PR [#3](https://github.com/fastapi/fastapi-new/pull/3) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add tests setup for CI. PR [#1](https://github.com/fastapi/fastapi-new/pull/1) by [@tiangolo](https://github.com/tiangolo).
 
-## 0.0.1
+## 0.0.1 (2024-08-15)
 
 Reserve PyPI package.
