@@ -45,7 +45,6 @@ Visit http://localhost:8000
 > FastAPI Cloud is currently in private beta. Join the waitlist at https://fastapicloud.com
 
 ```bash
-uv run fastapi login
 uv run fastapi deploy
 ```
 
@@ -239,7 +238,6 @@ def new(
         toolkit.print_line()
 
         toolkit.print("[bold]Deploy to FastAPI Cloud:[/bold]")
-        toolkit.print("  [dim]$[/dim] uv run fastapi login")
         toolkit.print("  [dim]$[/dim] uv run fastapi deploy")
 
         toolkit.print_line()
