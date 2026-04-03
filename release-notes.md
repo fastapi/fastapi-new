@@ -2,8 +2,15 @@
 
 ## Latest Changes
 
+## 0.0.6
+
+### Docs
+
+* 📝 Remove login command from README instructions. PR [#57](https://github.com/fastapi/fastapi-new/pull/57) by [@alejsdev](https://github.com/alejsdev).
+
 ### Internal
 
+* ⬆ Bump mypy from 1.19.1 to 1.20.0. PR [#53](https://github.com/fastapi/fastapi-new/pull/53) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ruff from 0.15.4 to 0.15.8. PR [#54](https://github.com/fastapi/fastapi-new/pull/54) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ty from 0.0.21 to 0.0.27. PR [#55](https://github.com/fastapi/fastapi-new/pull/55) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump prek from 0.3.4 to 0.3.8. PR [#56](https://github.com/fastapi/fastapi-new/pull/56) by [@dependabot[bot]](https://github.com/apps/dependabot).
