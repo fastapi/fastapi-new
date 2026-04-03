@@ -45,7 +45,6 @@ Visit http://localhost:8000
 > FastAPI Cloud is currently in private beta. Join the waitlist at https://fastapicloud.com
 
 ```bash
-uv run fastapi login
 uv run fastapi deploy
 ```
 
