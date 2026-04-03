@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Docs
+
+* 📝 Remove login command from README instructions. PR [#57](https://github.com/fastapi/fastapi-new/pull/57) by [@alejsdev](https://github.com/alejsdev).
+
 ### Internal
 
 * ⬆ Bump mypy from 1.19.1 to 1.20.0. PR [#53](https://github.com/fastapi/fastapi-new/pull/53) by [@dependabot[bot]](https://github.com/apps/dependabot).
