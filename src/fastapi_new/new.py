@@ -239,7 +239,6 @@ def new(
         toolkit.print_line()
 
         toolkit.print("[bold]Deploy to FastAPI Cloud:[/bold]")
-        toolkit.print("  [dim]$[/dim] uv run fastapi login")
         toolkit.print("  [dim]$[/dim] uv run fastapi deploy")
 
         toolkit.print_line()
