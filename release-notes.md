@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 0.0.6
+
 ### Docs
 
 * 📝 Remove login command from README instructions. PR [#57](https://github.com/fastapi/fastapi-new/pull/57) by [@alejsdev](https://github.com/alejsdev).
