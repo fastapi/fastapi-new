@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 🔒 Pin GitHub actions by commit SHA. PR [#52](https://github.com/fastapi/fastapi-new/pull/52) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 🔨 Add pre-commit hook to ensure latest release header has date. PR [#42](https://github.com/fastapi/fastapi-new/pull/42) by [@YuriiMotov](https://github.com/YuriiMotov).
 
 ## 0.0.6 (2026-04-03)
