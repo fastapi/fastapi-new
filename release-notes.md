@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump astral-sh/setup-uv from 7.6.0 to 8.0.0. PR [#59](https://github.com/fastapi/fastapi-new/pull/59) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔒 Pin GitHub actions by commit SHA. PR [#52](https://github.com/fastapi/fastapi-new/pull/52) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 🔨 Add pre-commit hook to ensure latest release header has date. PR [#42](https://github.com/fastapi/fastapi-new/pull/42) by [@YuriiMotov](https://github.com/YuriiMotov).
 
