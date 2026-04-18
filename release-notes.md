@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump astral-sh/setup-uv from 8.0.0 to 8.1.0. PR [#60](https://github.com/fastapi/fastapi-new/pull/60) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/upload-artifact from 7.0.0 to 7.0.1. PR [#58](https://github.com/fastapi/fastapi-new/pull/58) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump astral-sh/setup-uv from 7.6.0 to 8.0.0. PR [#59](https://github.com/fastapi/fastapi-new/pull/59) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔒 Pin GitHub actions by commit SHA. PR [#52](https://github.com/fastapi/fastapi-new/pull/52) by [@YuriiMotov](https://github.com/YuriiMotov).
