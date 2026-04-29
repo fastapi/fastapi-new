@@ -14,7 +14,7 @@ updates:
   - package-ecosystem: "uv"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     cooldown:
       default-days: 7
     commit-message:
