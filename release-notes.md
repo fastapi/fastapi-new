@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump mypy from 1.20.0 to 1.20.2. PR [#62](https://github.com/fastapi/fastapi-new/pull/62) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich from 14.3.3 to 15.0.0. PR [#66](https://github.com/fastapi/fastapi-new/pull/66) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ty from 0.0.27 to 0.0.34. PR [#64](https://github.com/fastapi/fastapi-new/pull/64) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump pytest from 9.0.2 to 9.0.3. PR [#63](https://github.com/fastapi/fastapi-new/pull/63) by [@dependabot[bot]](https://github.com/apps/dependabot).
