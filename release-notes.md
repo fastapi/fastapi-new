@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump actions/add-to-project from 1.0.2 to 2.0.0. PR [#67](https://github.com/fastapi/fastapi-new/pull/67) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/labeler from 6.0.1 to 6.1.0. PR [#68](https://github.com/fastapi/fastapi-new/pull/68) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump mypy from 1.20.0 to 1.20.2. PR [#62](https://github.com/fastapi/fastapi-new/pull/62) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich from 14.3.3 to 15.0.0. PR [#66](https://github.com/fastapi/fastapi-new/pull/66) by [@dependabot[bot]](https://github.com/apps/dependabot).
