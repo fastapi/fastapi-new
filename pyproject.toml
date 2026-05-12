@@ -48,7 +48,7 @@ tests = [
     "pytest>=8.3.5",
     "ruff==0.15.8",
     "smokeshow>=0.5.0",
-    "ty>=0.0.9",
+    "ty>=0.0.25",
 ]
 
 [project.scripts]
@@ -124,3 +124,6 @@ source-includes = [
     "tests/",
     "scripts/",
 ]
+
+[tool.ty.terminal]
+error-on-warning = true
