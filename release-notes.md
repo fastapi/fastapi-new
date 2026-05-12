@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆️ Bump the lower bound of `ty` to 0.0.25 and error on warnings. PR [#69](https://github.com/fastapi/fastapi-new/pull/69) by [@svlandeg](https://github.com/svlandeg).
 * ⬆ Bump actions/add-to-project from 1.0.2 to 2.0.0. PR [#67](https://github.com/fastapi/fastapi-new/pull/67) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/labeler from 6.0.1 to 6.1.0. PR [#68](https://github.com/fastapi/fastapi-new/pull/68) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump mypy from 1.20.0 to 1.20.2. PR [#62](https://github.com/fastapi/fastapi-new/pull/62) by [@dependabot[bot]](https://github.com/apps/dependabot).
