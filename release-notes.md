@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump prek from 0.3.8 to 0.3.13. PR [#71](https://github.com/fastapi/fastapi-new/pull/71) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ty from 0.0.34 to 0.0.35. PR [#72](https://github.com/fastapi/fastapi-new/pull/72) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump mypy from 1.20.2 to 2.0.0. PR [#73](https://github.com/fastapi/fastapi-new/pull/73) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔒️ Add zizmor and fix audit findings. PR [#61](https://github.com/fastapi/fastapi-new/pull/61) by [@YuriiMotov](https://github.com/YuriiMotov).
