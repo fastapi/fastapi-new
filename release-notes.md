@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 👷 Fix branch name in `guard-dependencies.yml`. PR [#75](https://github.com/fastapi/fastapi-new/pull/75) by [@svlandeg](https://github.com/svlandeg).
 * 🔒️ Only allow team members to modify dependencies. PR [#74](https://github.com/fastapi/fastapi-new/pull/74) by [@svlandeg](https://github.com/svlandeg).
 * ⬆ Bump ruff from 0.15.8 to 0.15.12. PR [#70](https://github.com/fastapi/fastapi-new/pull/70) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump prek from 0.3.8 to 0.3.13. PR [#71](https://github.com/fastapi/fastapi-new/pull/71) by [@dependabot[bot]](https://github.com/apps/dependabot).
