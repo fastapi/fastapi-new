@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump mypy from 1.20.2 to 2.0.0. PR [#73](https://github.com/fastapi/fastapi-new/pull/73) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔒️ Add zizmor and fix audit findings. PR [#61](https://github.com/fastapi/fastapi-new/pull/61) by [@YuriiMotov](https://github.com/YuriiMotov).
 * ⬆️ Bump the lower bound of `ty` to 0.0.25 and error on warnings. PR [#69](https://github.com/fastapi/fastapi-new/pull/69) by [@svlandeg](https://github.com/svlandeg).
 * ⬆ Bump actions/add-to-project from 1.0.2 to 2.0.0. PR [#67](https://github.com/fastapi/fastapi-new/pull/67) by [@dependabot[bot]](https://github.com/apps/dependabot).
