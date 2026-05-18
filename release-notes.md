@@ -4,6 +4,14 @@
 
 ### Internal
 
+* ⬆️ Bump the lower bound of `ty` to 0.0.25 and error on warnings. PR [#69](https://github.com/fastapi/fastapi-new/pull/69) by [@svlandeg](https://github.com/svlandeg).
+* ⬆ Bump actions/add-to-project from 1.0.2 to 2.0.0. PR [#67](https://github.com/fastapi/fastapi-new/pull/67) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump actions/labeler from 6.0.1 to 6.1.0. PR [#68](https://github.com/fastapi/fastapi-new/pull/68) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump mypy from 1.20.0 to 1.20.2. PR [#62](https://github.com/fastapi/fastapi-new/pull/62) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump rich from 14.3.3 to 15.0.0. PR [#66](https://github.com/fastapi/fastapi-new/pull/66) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump ty from 0.0.27 to 0.0.34. PR [#64](https://github.com/fastapi/fastapi-new/pull/64) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump pytest from 9.0.2 to 9.0.3. PR [#63](https://github.com/fastapi/fastapi-new/pull/63) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump typer from 0.24.1 to 0.25.1. PR [#65](https://github.com/fastapi/fastapi-new/pull/65) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump astral-sh/setup-uv from 8.0.0 to 8.1.0. PR [#60](https://github.com/fastapi/fastapi-new/pull/60) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/upload-artifact from 7.0.0 to 7.0.1. PR [#58](https://github.com/fastapi/fastapi-new/pull/58) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump astral-sh/setup-uv from 7.6.0 to 8.0.0. PR [#59](https://github.com/fastapi/fastapi-new/pull/59) by [@dependabot[bot]](https://github.com/apps/dependabot).
