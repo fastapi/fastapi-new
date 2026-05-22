@@ -8,6 +8,7 @@
 
 ### Internal
 
+* 🔥 Remove config files now in central GitHub repo. PR [#79](https://github.com/fastapi/fastapi-new/pull/79) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Fix branch name in `guard-dependencies.yml`. PR [#75](https://github.com/fastapi/fastapi-new/pull/75) by [@svlandeg](https://github.com/svlandeg).
 * 🔒️ Only allow team members to modify dependencies. PR [#74](https://github.com/fastapi/fastapi-new/pull/74) by [@svlandeg](https://github.com/svlandeg).
 * ⬆ Bump ruff from 0.15.8 to 0.15.12. PR [#70](https://github.com/fastapi/fastapi-new/pull/70) by [@dependabot[bot]](https://github.com/apps/dependabot).
