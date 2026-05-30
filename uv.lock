@@ -249,7 +249,7 @@ tests = [
 requires-dist = [
     { name = "rich", specifier = ">=13.7.1" },
     { name = "rich-toolkit", specifier = ">=0.15.1" },
-    { name = "typer", specifier = ">=0.16.0" },
+    { name = "typer", specifier = ">=0.24.1" },
     { name = "typing-extensions", specifier = ">=4.12.2" },
 ]
 
