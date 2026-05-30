@@ -8,6 +8,7 @@
 
 ### Internal
 
+* 👷 Add pre-commit hook to catch typos. PR [#83](https://github.com/fastapi/fastapi-new/pull/83) by [@YuriiMotov](https://github.com/YuriiMotov).
 * ⬆ Bump rich-toolkit from 0.19.7 to 0.19.9. PR [#81](https://github.com/fastapi/fastapi-new/pull/81) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Configure Dependabot to group updates and update weekly. PR [#76](https://github.com/fastapi/fastapi-new/pull/76) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 🔥 Remove config files now in central GitHub repo. PR [#79](https://github.com/fastapi/fastapi-new/pull/79) by [@tiangolo](https://github.com/tiangolo).
