@@ -8,6 +8,7 @@
 
 ### Internal
 
+* ⬆ Bump rich-toolkit from 0.19.9 to 0.19.10. PR [#88](https://github.com/fastapi/fastapi-new/pull/88) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Automate release preparation. PR [#84](https://github.com/fastapi/fastapi-new/pull/84) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add pre-commit hook to catch typos. PR [#83](https://github.com/fastapi/fastapi-new/pull/83) by [@YuriiMotov](https://github.com/YuriiMotov).
 * ⬆ Bump rich-toolkit from 0.19.7 to 0.19.9. PR [#81](https://github.com/fastapi/fastapi-new/pull/81) by [@dependabot[bot]](https://github.com/apps/dependabot).
