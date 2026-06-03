@@ -8,6 +8,7 @@
 
 ### Internal
 
+* ⬆ Bump eps1lon/actions-label-merge-conflict from 3.0.3 to 3.1.0 in the github-actions group. PR [#87](https://github.com/fastapi/fastapi-new/pull/87) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich-toolkit from 0.19.9 to 0.19.10. PR [#88](https://github.com/fastapi/fastapi-new/pull/88) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Automate release preparation. PR [#84](https://github.com/fastapi/fastapi-new/pull/84) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add pre-commit hook to catch typos. PR [#83](https://github.com/fastapi/fastapi-new/pull/83) by [@YuriiMotov](https://github.com/YuriiMotov).
