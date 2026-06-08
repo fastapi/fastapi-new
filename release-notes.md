@@ -8,6 +8,7 @@
 
 ### Internal
 
+* ⬆ Bump typer from 0.26.1 to 0.26.5. PR [#90](https://github.com/fastapi/fastapi-new/pull/90) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the python-packages group across 1 directory with 3 updates. PR [#85](https://github.com/fastapi/fastapi-new/pull/85) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump eps1lon/actions-label-merge-conflict from 3.0.3 to 3.1.0 in the github-actions group. PR [#87](https://github.com/fastapi/fastapi-new/pull/87) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich-toolkit from 0.19.9 to 0.19.10. PR [#88](https://github.com/fastapi/fastapi-new/pull/88) by [@dependabot[bot]](https://github.com/apps/dependabot).
