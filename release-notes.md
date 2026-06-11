@@ -8,6 +8,7 @@
 
 ### Internal
 
+* ⬆ Bump https://github.com/crate-ci/typos from v1.46.0 to v1.47.2 in the pre-commit group. PR [#91](https://github.com/fastapi/fastapi-new/pull/91) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typer from 0.26.1 to 0.26.5. PR [#90](https://github.com/fastapi/fastapi-new/pull/90) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the python-packages group across 1 directory with 3 updates. PR [#85](https://github.com/fastapi/fastapi-new/pull/85) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump eps1lon/actions-label-merge-conflict from 3.0.3 to 3.1.0 in the github-actions group. PR [#87](https://github.com/fastapi/fastapi-new/pull/87) by [@dependabot[bot]](https://github.com/apps/dependabot).
