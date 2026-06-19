@@ -4,6 +4,7 @@
 
 ### Docs
 
+* 📝 Get rid of "Join the waitlist" note in generated project README. PR [#99](https://github.com/fastapi/fastapi-new/pull/99) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 📝 Update security policy. PR [#77](https://github.com/fastapi/fastapi-new/pull/77) by [@tiangolo](https://github.com/tiangolo).
 
 ### Internal
