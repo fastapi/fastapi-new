@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 0.0.7 (2026-06-19)
+
 ### Docs
 
 * 📝 Get rid of "Join the waitlist" note in generated project README. PR [#99](https://github.com/fastapi/fastapi-new/pull/99) by [@YuriiMotov](https://github.com/YuriiMotov).
