@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Internal
+
+* 👷 Fix alls-green test dependency. PR [#101](https://github.com/fastapi/fastapi-new/pull/101) by [@tiangolo](https://github.com/tiangolo).
+
 ## 0.0.7 (2026-06-19)
 
 ### Docs
