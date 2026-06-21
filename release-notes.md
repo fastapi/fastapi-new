@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 🔒️ Update zizmor workflow security checks. PR [#102](https://github.com/fastapi/fastapi-new/pull/102) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Fix alls-green test dependency. PR [#101](https://github.com/fastapi/fastapi-new/pull/101) by [@tiangolo](https://github.com/tiangolo).
 
 ## 0.0.7 (2026-06-19)
