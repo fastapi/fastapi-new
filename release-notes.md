@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 👷 Update issue-manager to 0.7.1. PR [#105](https://github.com/fastapi/fastapi-new/pull/105) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.7.0. PR [#104](https://github.com/fastapi/fastapi-new/pull/104) by [@tiangolo](https://github.com/tiangolo).
 * 🔒️ Update zizmor workflow security checks. PR [#102](https://github.com/fastapi/fastapi-new/pull/102) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Fix alls-green test dependency. PR [#101](https://github.com/fastapi/fastapi-new/pull/101) by [@tiangolo](https://github.com/tiangolo).
