@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆️ Update latest-changes to 0.6.1. PR [#111](https://github.com/fastapi/fastapi-new/pull/111) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump typer from 0.26.5 to 0.26.7. PR [#97](https://github.com/fastapi/fastapi-new/pull/97) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the python-packages group across 1 directory with 5 updates. PR [#107](https://github.com/fastapi/fastapi-new/pull/107) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#108](https://github.com/fastapi/fastapi-new/pull/108) by [@dependabot[bot]](https://github.com/apps/dependabot).
