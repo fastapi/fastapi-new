@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump typing-extensions from 4.15.0 to 4.16.0. PR [#118](https://github.com/fastapi/fastapi-new/pull/118) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typer from 0.26.7 to 0.26.8. PR [#115](https://github.com/fastapi/fastapi-new/pull/115) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump pre-commit hooks. PR [#119](https://github.com/fastapi/fastapi-new/pull/119) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add GH workflow to bump pre-commit hook versions. PR [#109](https://github.com/fastapi/fastapi-new/pull/109) by [@YuriiMotov](https://github.com/YuriiMotov).
