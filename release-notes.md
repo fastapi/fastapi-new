@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 🔧 Set Dependabot schedule interval to "monthly". PR [#110](https://github.com/fastapi/fastapi-new/pull/110) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 👷 Fix latest-changes checkout target. PR [#113](https://github.com/fastapi/fastapi-new/pull/113) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.8.1. PR [#112](https://github.com/fastapi/fastapi-new/pull/112) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update latest-changes to 0.6.1. PR [#111](https://github.com/fastapi/fastapi-new/pull/111) by [@tiangolo](https://github.com/tiangolo).
