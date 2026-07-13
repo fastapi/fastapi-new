@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 👷 Add GH workflow to bump pre-commit hook versions. PR [#109](https://github.com/fastapi/fastapi-new/pull/109) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 🔧 Set Dependabot schedule interval to "monthly". PR [#110](https://github.com/fastapi/fastapi-new/pull/110) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 👷 Fix latest-changes checkout target. PR [#113](https://github.com/fastapi/fastapi-new/pull/113) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.8.1. PR [#112](https://github.com/fastapi/fastapi-new/pull/112) by [@tiangolo](https://github.com/tiangolo).
