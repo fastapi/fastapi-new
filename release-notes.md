@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#121](https://github.com/fastapi/fastapi-new/pull/121) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typing-extensions from 4.15.0 to 4.16.0. PR [#118](https://github.com/fastapi/fastapi-new/pull/118) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typer from 0.26.7 to 0.26.8. PR [#115](https://github.com/fastapi/fastapi-new/pull/115) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump pre-commit hooks. PR [#119](https://github.com/fastapi/fastapi-new/pull/119) by [@tiangolo](https://github.com/tiangolo).
