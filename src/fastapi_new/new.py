@@ -196,18 +196,27 @@ def new(
                 "uv is required to create new projects. Install it from https://docs.astral.sh/uv/getting-started/installation/",
             )
 
-        _setup(toolkit, config)
+        try:
+            _setup(toolkit, config)
 
-        toolkit.print_line()
+            toolkit.print_line()
 
-        _install_dependencies(toolkit, config)
+            _install_dependencies(toolkit, config)
 
-        toolkit.print_line()
+            toolkit.print_line()
 
-        _write_template_files(toolkit, config)
+            _write_template_files(toolkit, config)
 
-        toolkit.print_line()
-
+            toolkit.print_line()
+        except typer.Exit as e:
+            # if we create a new directory and error occured, clean it up
+            if not current_dir and config.path.exists():
+                shutil.rmtree(config.path, ignore_errors=True)
+                toolkit.print(
+                    "[yellow]Cleaned up incomplete directory[/yellow]"
+                )
+            # re raising the exit so the program still terminates properly
+            raise e
         # Print success message
         if not current_dir:
             toolkit.print(
