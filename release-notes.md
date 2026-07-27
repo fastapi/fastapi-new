@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆️ Upgrade latest-changes to 0.7.1. PR [#123](https://github.com/fastapi/fastapi-new/pull/123) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the python-packages group across 1 directory with 3 updates. PR [#120](https://github.com/fastapi/fastapi-new/pull/120) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#121](https://github.com/fastapi/fastapi-new/pull/121) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typing-extensions from 4.15.0 to 4.16.0. PR [#118](https://github.com/fastapi/fastapi-new/pull/118) by [@dependabot[bot]](https://github.com/apps/dependabot).
