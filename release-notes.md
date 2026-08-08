@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 👷 Use GitHub CLI for Git authentication. PR [#132](https://github.com/fastapi/fastapi-new/pull/132) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Use PR Push commit identity. PR [#131](https://github.com/fastapi/fastapi-new/pull/131) by [@tiangolo](https://github.com/tiangolo).
 * 🔒 Replace pre-commit PAT with PR Push. PR [#129](https://github.com/fastapi/fastapi-new/pull/129) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Remove the old Latest Changes workflow. PR [#128](https://github.com/fastapi/fastapi-new/pull/128) by [@tiangolo](https://github.com/tiangolo).
