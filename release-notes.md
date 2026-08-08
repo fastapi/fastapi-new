@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 👷 Use PR Push commit identity. PR [#131](https://github.com/fastapi/fastapi-new/pull/131) by [@tiangolo](https://github.com/tiangolo).
 * 🔒 Replace pre-commit PAT with PR Push. PR [#129](https://github.com/fastapi/fastapi-new/pull/129) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Remove the old Latest Changes workflow. PR [#128](https://github.com/fastapi/fastapi-new/pull/128) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the python-packages group across 1 directory with 5 updates. PR [#124](https://github.com/fastapi/fastapi-new/pull/124) by [@dependabot[bot]](https://github.com/apps/dependabot).
