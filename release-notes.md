@@ -4,6 +4,7 @@
 
 ### Internal
 
+* ⬆️ Bump setup-uv action to 10.0.1. PR [#136](https://github.com/fastapi/fastapi-new/pull/136) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 👷 Migrate automatic labels to Latest Changes. PR [#135](https://github.com/fastapi/fastapi-new/pull/135) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Remove legacy label check. PR [#134](https://github.com/fastapi/fastapi-new/pull/134) by [@tiangolo](https://github.com/tiangolo).
 * 🔐 Use PR Submit for pull requests. PR [#133](https://github.com/fastapi/fastapi-new/pull/133) by [@tiangolo](https://github.com/tiangolo).
