@@ -8,6 +8,7 @@
 
 ### Internal
 
+* ⬆ Bump typer from 0.27.0 to 0.27.1. PR [#141](https://github.com/fastapi/fastapi-new/pull/141) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the github-actions group with 3 updates. PR [#139](https://github.com/fastapi/fastapi-new/pull/139) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump pre-commit hooks. PR [#138](https://github.com/fastapi/fastapi-new/pull/138) by [@pr-submit[bot]](https://github.com/apps/pr-submit).
 * ⬆️ Bump setup-uv action to 10.0.1. PR [#136](https://github.com/fastapi/fastapi-new/pull/136) by [@YuriiMotov](https://github.com/YuriiMotov).
