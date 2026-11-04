@@ -8,6 +8,7 @@
 
 ### Internal
 
+* ⬆ Bump the python-packages group across 1 directory with 5 updates. PR [#154](https://github.com/fastapi/fastapi-new/pull/154) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump typer from 0.27.2 to 0.27.3. PR [#150](https://github.com/fastapi/fastapi-new/pull/150) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich-toolkit from 0.20.5 to 0.20.6. PR [#151](https://github.com/fastapi/fastapi-new/pull/151) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the github-actions group with 6 updates. PR [#152](https://github.com/fastapi/fastapi-new/pull/152) by [@dependabot[bot]](https://github.com/apps/dependabot).
