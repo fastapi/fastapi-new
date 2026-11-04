@@ -8,6 +8,7 @@
 
 ### Internal
 
+* ⬆ Bump rich-toolkit from 0.20.5 to 0.20.6. PR [#151](https://github.com/fastapi/fastapi-new/pull/151) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the github-actions group with 6 updates. PR [#152](https://github.com/fastapi/fastapi-new/pull/152) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump pre-commit hooks. PR [#153](https://github.com/fastapi/fastapi-new/pull/153) by [@pr-submit[bot]](https://github.com/apps/pr-submit).
 * 👷 Fix deprecated command in bump-pre-commit-hooks workflow. PR [#147](https://github.com/fastapi/fastapi-new/pull/147) by [@YuriiMotov](https://github.com/YuriiMotov).
