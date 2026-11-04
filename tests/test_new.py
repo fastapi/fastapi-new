@@ -98,6 +98,18 @@ def test_rejects_existing_directory(temp_project_dir: Path) -> None:
     assert "Directory 'existing_project' already exists." in result.output
 
 
+def test_refuses_to_overwrite_existing_files_in_current_dir(
+    temp_project_dir: Path,
+) -> None:
+    (temp_project_dir / "main.py").write_text("precious code")
+    (temp_project_dir / "README.md").write_text("precious readme")
+    result = runner.invoke(app, [])
+    assert result.exit_code == 1
+    assert "Refusing to overwrite" in result.output
+    assert (temp_project_dir / "main.py").read_text() == "precious code"
+    assert (temp_project_dir / "README.md").read_text() == "precious readme"
+
+
 def test_rejects_python_below_3_10(temp_project_dir: Path) -> None:
     result = runner.invoke(app, ["test_project", "--python", "3.9"])
     assert result.exit_code == 1

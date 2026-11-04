@@ -190,6 +190,24 @@ def new(
         if not current_dir and config.path.exists():
             _exit_with_error(toolkit, f"Directory '{config.name}' already exists.")
 
+        # In current directory mode there is no new directory to protect
+        # existing work, so check the files the template writes. Without
+        # this, running the command in the wrong directory silently
+        # destroys an existing main.py and README.md.
+        if current_dir:
+            existing = [
+                name
+                for name in ("main.py", "README.md")
+                if (config.path / name).exists()
+            ]
+            if existing:
+                _exit_with_error(
+                    toolkit,
+                    "Refusing to overwrite existing file(s): "
+                    + ", ".join(existing)
+                    + ". Move them aside or run in an empty directory.",
+                )
+
         if shutil.which("uv") is None:
             _exit_with_error(
                 toolkit,
