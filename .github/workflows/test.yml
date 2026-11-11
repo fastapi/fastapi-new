@@ -30,6 +30,8 @@ jobs:
           - macos-latest
         python-version:
           - "3.14"
+          - "3.15"
+          - "3.15t"
         uv-resolution:
           - highest
         include:
