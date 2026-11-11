@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+## 0.0.8 (2026-11-11)
+
 ### Fixes
 
 * 🐛 Preserve the requested Python interpreter for generated projects. PR [#156](https://github.com/fastapi/fastapi-new/pull/156) by [@tiangolo](https://github.com/tiangolo).
