@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Fixes
+
+* 🐛 Preserve the requested Python interpreter for generated projects. PR [#156](https://github.com/fastapi/fastapi-new/pull/156) by [@tiangolo](https://github.com/tiangolo).
+
 ### Upgrades
 
 * ⬆️ Bump Typer min version to `0.26.1`. PR [#137](https://github.com/fastapi/fastapi-new/pull/137) by [@YuriiMotov](https://github.com/YuriiMotov).
