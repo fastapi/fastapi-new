@@ -121,9 +121,13 @@ def _setup(toolkit: RichToolkit, config: ProjectConfig) -> None:
 def _install_dependencies(toolkit: RichToolkit, config: ProjectConfig) -> None:
     toolkit.print("Installing dependencies...", tag="deps")
 
+    install_cmd = ["uv", "add", "fastapi[standard]"]
+    if config.python:
+        install_cmd.extend(["--python", config.python])
+
     try:
         subprocess.run(
-            ["uv", "add", "fastapi[standard]"],
+            install_cmd,
             check=True,
             capture_output=True,
             cwd=config.path,
