@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Upgrades
+
+* ⬆️ Add support for Python 3.15 and 3.15t. PR [#155](https://github.com/fastapi/fastapi-new/pull/155) by [@tiangolo](https://github.com/tiangolo).
+
 ## 0.0.8 (2026-11-11)
 
 ### Fixes
