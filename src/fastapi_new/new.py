@@ -67,8 +67,8 @@ def _exit_with_error(toolkit: RichToolkit, error_msg: str) -> None:
 
 def _validate_python_version(python: str | None) -> str | None:
     """
-    Validate Python version is >= 3.10.
-    Returns error message if < 3.10, None otherwise.
+    Validate Python version is >= 3.11.
+    Returns error message if < 3.11, None otherwise.
     Let uv handle malformed versions or versions it can't find.
     """
     if not python:
@@ -80,8 +80,8 @@ def _validate_python_version(python: str | None) -> str | None:
             return None  # Let uv handle malformed version
         major, minor = int(parts[0]), int(parts[1])
 
-        if major < 3 or (major == 3 and minor < 10):
-            return f"Python {python} is not supported. FastAPI requires Python 3.10 or higher."
+        if major < 3 or (major == 3 and minor < 11):
+            return f"Python {python} is not supported. FastAPI requires Python 3.11 or higher."
     except (ValueError, IndexError):
         # Malformed version - let uv handle the error
         pass
@@ -108,8 +108,7 @@ def _setup(toolkit: RichToolkit, config: ProjectConfig) -> None:
     else:
         init_cmd = ["uv", "init", "--bare", str(config.path)]
 
-    if config.python:
-        init_cmd.extend(["--python", config.python])
+    init_cmd.extend(["--python", config.python or ">=3.11"])
 
     try:
         subprocess.run(init_cmd, check=True, capture_output=True)
@@ -122,8 +121,7 @@ def _install_dependencies(toolkit: RichToolkit, config: ProjectConfig) -> None:
     toolkit.print("Installing dependencies...", tag="deps")
 
     install_cmd = ["uv", "add", "fastapi[standard]"]
-    if config.python:
-        install_cmd.extend(["--python", config.python])
+    install_cmd.extend(["--python", config.python or ">=3.11"])
 
     try:
         subprocess.run(
@@ -161,7 +159,7 @@ def new(
         typer.Option(
             "--python",
             "-p",
-            help="Specify the Python version for the new project (e.g., 3.14). Must be 3.10 or higher.",
+            help="Specify the Python version for the new project (e.g., 3.14). Must be 3.11 or higher.",
         ),
     ] = None,
 ) -> None:
