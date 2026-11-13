@@ -2,6 +2,10 @@
 
 ## Latest Changes
 
+### Breaking Changes
+
+* 🔥 Drop support for Python 3.10. PR [#159](https://github.com/fastapi/fastapi-new/pull/159) by [@tiangolo](https://github.com/tiangolo).
+
 ## 0.0.9 (2026-11-11)
 
 ### Upgrades
