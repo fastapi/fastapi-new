@@ -29,7 +29,6 @@ jobs:
           - windows-latest
           - macos-latest
         python-version:
-          - "3.14"
           - "3.15"
           - "3.15t"
         uv-resolution:
@@ -49,6 +48,9 @@ jobs:
             uv-resolution: highest
           - os: macos-latest
             python-version: "3.13"
+            uv-resolution: highest
+          - os: ubuntu-latest
+            python-version: "3.14"
             uv-resolution: highest
       fail-fast: false
     runs-on: ${{ matrix.os }}
