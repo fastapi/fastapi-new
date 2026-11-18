@@ -2,12 +2,39 @@
 
 ## Latest Changes
 
+### Internal
+
+* 👷 Limit the full test matrix to Python 3.15. PR [#161](https://github.com/fastapi/fastapi-new/pull/161) by [@tiangolo](https://github.com/tiangolo).
+
+## 0.0.10 (2026-11-13)
+
+### Breaking Changes
+
+* 🔥 Drop support for Python 3.10. PR [#159](https://github.com/fastapi/fastapi-new/pull/159) by [@tiangolo](https://github.com/tiangolo).
+
+## 0.0.9 (2026-11-11)
+
+### Upgrades
+
+* ⬆️ Add support for Python 3.15 and 3.15t. PR [#155](https://github.com/fastapi/fastapi-new/pull/155) by [@tiangolo](https://github.com/tiangolo).
+
+## 0.0.8 (2026-11-11)
+
+### Fixes
+
+* 🐛 Preserve the requested Python interpreter for generated projects. PR [#156](https://github.com/fastapi/fastapi-new/pull/156) by [@tiangolo](https://github.com/tiangolo).
+
 ### Upgrades
 
 * ⬆️ Bump Typer min version to `0.26.1`. PR [#137](https://github.com/fastapi/fastapi-new/pull/137) by [@YuriiMotov](https://github.com/YuriiMotov).
 
 ### Internal
 
+* ⬆ Bump the python-packages group across 1 directory with 5 updates. PR [#154](https://github.com/fastapi/fastapi-new/pull/154) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump typer from 0.27.2 to 0.27.3. PR [#150](https://github.com/fastapi/fastapi-new/pull/150) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump rich-toolkit from 0.20.5 to 0.20.6. PR [#151](https://github.com/fastapi/fastapi-new/pull/151) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump the github-actions group with 6 updates. PR [#152](https://github.com/fastapi/fastapi-new/pull/152) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump pre-commit hooks. PR [#153](https://github.com/fastapi/fastapi-new/pull/153) by [@pr-submit[bot]](https://github.com/apps/pr-submit).
 * 👷 Fix deprecated command in bump-pre-commit-hooks workflow. PR [#147](https://github.com/fastapi/fastapi-new/pull/147) by [@YuriiMotov](https://github.com/YuriiMotov).
 * ⬆ Bump the python-packages group across 1 directory with 4 updates. PR [#142](https://github.com/fastapi/fastapi-new/pull/142) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump rich-toolkit from 0.20.3 to 0.20.5. PR [#143](https://github.com/fastapi/fastapi-new/pull/143) by [@dependabot[bot]](https://github.com/apps/dependabot).

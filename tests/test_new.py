@@ -1,5 +1,8 @@
 import shutil
 import subprocess
+import sys
+import sysconfig
+import tomllib
 from pathlib import Path
 from typing import Any
 
@@ -15,13 +18,32 @@ runner = CliRunner()
 def temp_project_dir(tmp_path: Path, monkeypatch: Any) -> Path:
     """Create a temporary directory and cd into it."""
     monkeypatch.chdir(tmp_path)
+    # Use normal dependency installation for generated projects.
+    monkeypatch.delenv("UV_NO_SYNC", raising=False)
+    monkeypatch.delenv("UV_RESOLUTION", raising=False)
     return tmp_path
 
 
 def _assert_project_created(project_path: Path) -> None:
     assert (project_path / "main.py").exists()
     assert (project_path / "README.md").exists()
-    assert (project_path / "pyproject.toml").exists()
+    pyproject = tomllib.loads((project_path / "pyproject.toml").read_text())
+    requires_python = pyproject["project"]["requires-python"]
+    assert requires_python.startswith(">=")
+    assert tuple(map(int, requires_python.removeprefix(">=").split(".")[:2])) >= (3, 11)
+
+
+def _assert_project_runs(project_path: Path, python: str) -> None:
+    fixture = Path(__file__).parent / "fixtures" / "check_generated_project.py"
+    script = project_path / fixture.name
+    shutil.copyfile(fixture, script)
+    result = subprocess.run(
+        ["uv", "run", "--no-sync", "python", str(script), python],
+        cwd=project_path,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0, result.stderr
 
 
 def test_creates_project_successfully(temp_project_dir: Path) -> None:
@@ -41,12 +63,25 @@ def test_creates_project_with_python_version(temp_project_dir: Path) -> None:
     project_path = temp_project_dir / "project_long"
     _assert_project_created(project_path)
     assert "3.12" in (project_path / "pyproject.toml").read_text()
+    _assert_project_runs(project_path, "3.12")
 
     # Test short form
     result = runner.invoke(app, ["project_short", "-p", "3.11"])
     assert result.exit_code == 0
     project_path = temp_project_dir / "project_short"
     assert "3.11" in (project_path / "pyproject.toml").read_text()
+    _assert_project_runs(project_path, "3.11")
+
+
+def test_runs_project_with_current_python(temp_project_dir: Path) -> None:
+    version = sys.version_info[:2]
+    free_threaded = bool(sysconfig.get_config_var("Py_GIL_DISABLED"))
+    python = f"{version[0]}.{version[1]}" + ("t" if free_threaded else "")
+    result = runner.invoke(app, ["current_python", "--python", python])
+    assert result.exit_code == 0, result.output
+    project_path = temp_project_dir / "current_python"
+    _assert_project_created(project_path)
+    _assert_project_runs(project_path, python)
 
 
 def test_validates_template_file_contents(temp_project_dir: Path) -> None:
@@ -110,11 +145,13 @@ def test_refuses_to_overwrite_existing_files_in_current_dir(
     assert (temp_project_dir / "README.md").read_text() == "precious readme"
 
 
-def test_rejects_python_below_3_10(temp_project_dir: Path) -> None:
-    result = runner.invoke(app, ["test_project", "--python", "3.9"])
+@pytest.mark.parametrize("python", ["2.7", "3.9", "3.10", "3.10.15"])
+def test_rejects_python_below_3_11(temp_project_dir: Path, python: str) -> None:
+    result = runner.invoke(app, ["test_project", "--python", python])
     assert result.exit_code == 1
-    assert "Python 3.9 is not supported" in result.output
-    assert "FastAPI requires Python 3.10" in result.output
+    assert f"Python {python} is not supported" in result.output
+    assert "FastAPI requires Python 3.11" in " ".join(result.output.split())
+    assert not (temp_project_dir / "test_project").exists()
 
 
 def test_passes_single_digit_python_version_to_uv(temp_project_dir: Path) -> None:
@@ -130,11 +167,22 @@ def test_passes_malformed_python_version_to_uv(temp_project_dir: Path) -> None:
     assert result.exit_code == 1
 
 
-def test_creates_project_without_python_flag(temp_project_dir: Path) -> None:
+def test_creates_project_without_python_flag(
+    temp_project_dir: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("UV_PYTHON", "3.10")
     result = runner.invoke(app, ["test_project"])
     assert result.exit_code == 0
     project_path = temp_project_dir / "test_project"
     _assert_project_created(project_path)
+    pyproject = tomllib.loads((project_path / "pyproject.toml").read_text())
+    assert pyproject["project"]["requires-python"] == ">=3.11"
+
+
+def test_help_shows_minimum_python_version() -> None:
+    result = runner.invoke(app, ["--help"], env={"COLUMNS": "160"})
+    assert result.exit_code == 0
+    assert "Must be 3.11 or higher." in result.output
 
 
 def test_failed_to_initialize_with_uv(monkeypatch: Any) -> None:
