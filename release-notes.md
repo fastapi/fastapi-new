@@ -4,6 +4,7 @@
 
 ### Internal
 
+* 🔒️ Generate GH actions workflow lockfile and bump Zizmor. PR [#162](https://github.com/fastapi/fastapi-new/pull/162) by [@YuriiMotov](https://github.com/YuriiMotov).
 * 👷 Limit the full test matrix to Python 3.15. PR [#161](https://github.com/fastapi/fastapi-new/pull/161) by [@tiangolo](https://github.com/tiangolo).
 
 ## 0.0.10 (2026-11-13)
